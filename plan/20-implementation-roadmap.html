@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>20 — Concept-to-Beta Implementation Roadmap — StickerPass Planning Package</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%232D174C'/%3E%3Cpath d='M100 0v100H38z' fill='%23FF654A'/%3E%3Ctext x='50' y='68' text-anchor='middle' font-family='Arial Black,sans-serif' font-size='52' font-weight='900' fill='%23FFF3DF'%3ES%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Inter:wght@400;500;600;700;800&family=Caveat:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="doc-style.css?v=4">
+</head>
+<body>
+  <div class="progress" aria-hidden="true"><span id="pb"></span></div>
+  <nav class="docbar" aria-label="Package navigation">
+    <a class="docbar-brand" href="index.html">
+      <span class="docbar-mark" aria-hidden="true">S</span>
+      <span class="docbar-title">Sticker<b>Pass</b> · Planning Package</span>
+    </a>
+    <div class="docbar-nav">
+      <a href="19-required-tools-and-skills.html" aria-label="Previous document">←</a>
+      <a class="docbar-index" href="index.html">All documents</a>
+      <a href="21-traceability-and-release-gates.html" aria-label="Next document">→</a>
+    </div>
+  </nav>
+  <main class="doc">
+    <header class="doc-head">
+      <div class="doc-chapter"><b>Doc 20</b><span>Concept → production</span></div>
+      <h1>Concept-to-Beta Implementation Roadmap</h1>
+      <nav class="doc-toc" aria-label="On this page"><a href="#how-we-ship-small-slices-real-evidence">How we ship: small slices, real evidence</a><a href="#phase-0-take-control-before-building-anything-week-1">Phase 0 — Take control before building anything (week 1)</a><a href="#phase-1-prove-the-service-and-the-story-weeks-14">Phase 1 — Prove the service and the story (weeks 1–4)</a><a href="#phase-2-build-the-transaction-foundation-weeks-37">Phase 2 — Build the transaction foundation (weeks 3–7)</a><a href="#phase-3-make-redemption-verifiable-and-accountable-weeks-610">Phase 3 — Make redemption verifiable and accountable (weeks 6–10)</a><a href="#phase-4-ready-the-people-side-safety-access-dignity-weeks-812">Phase 4 — Ready the people side: safety, access, dignity (weeks 8–12)</a><a href="#phase-5-launch-the-campaign-and-land-the-financing-parallel">Phase 5 — Launch the campaign and land the financing (parallel)</a><a href="#phase-6-rehearse-everything-before-its-real-weeks-1115-or-fund-dependent">Phase 6 — Rehearse everything before it's real (weeks 11–15 or fund-dependent)</a><a href="#phase-7-start-small-in-austin-grow-only-on-proof-24-weeks">Phase 7 — Start small in Austin, grow only on proof (2–4 weeks)</a><a href="#phase-8-decide-honestly-continue-revise-pause-or-stop">Phase 8 — Decide honestly: continue, revise, pause, or stop</a><a href="#the-christmas-2026-objective-and-its-honest-limits">The Christmas 2026 objective — and its honest limits</a><a href="#the-weekly-rhythm-that-keeps-it-moving">The weekly rhythm that keeps it moving</a><a href="#what-done-actually-means-here">What "done" actually means here</a></nav>
+      <p class="doc-meta">≈ 4 min read <i>✦</i> source: 20-implementation-roadmap.md</p>
+    </header>
+    
+    <section class="doc-story" aria-label="The heart of this document">
+      <div class="doc-story-sticker">
+        <img src="../assets/stickers/web/05-ripple-boot.png" alt="Ripple Boot sticker — each step sending out rings" loading="lazy" width="300" height="300">
+      </div>
+      <div class="doc-story-heart">
+        <p class="doc-heart-line">This road only moves as fast as trust can walk.</p>
+        <p class="doc-serves-line">This document serves everyone being asked to wait — each gate exists to protect neighbors, partners, and supporters from a rushed launch.</p>
+      </div>
+    </section>
+    <figure class="doc-fig">
+<svg viewBox="0 0 680 396" role="img" aria-label="The implementation roadmap: nine gates from evidence to an honest exit decision" class="fig-svg"><line x1="212" y1="60" x2="238" y2="60" stroke="#ff654a" stroke-width="2.5" stroke-dasharray="2 8" stroke-linecap="round"/><line x1="212" y1="60" x2="238" y2="60" stroke="#ff654a" stroke-width="2.5" stroke-dasharray="2 8" stroke-linecap="round"/><rect x="11" y="12" width="204" height="104" rx="14" fill="#2d174c" opacity=".1"/><rect x="8" y="8" width="204" height="104" rx="14" fill="#ffffff" stroke="#ffffff" stroke-width="3"/><circle cx="34" cy="36" r="15" fill="#b7f85b"/><text x="34" y="41" class="fig-chipnum" text-anchor="middle">G0</text><text x="58" y="41" class="fig-title" text-anchor="start">Evidence</text><text x="24" y="66" class="fig-desc" text-anchor="start">Planning package complete.</text><line x1="442" y1="60" x2="468" y2="60" stroke="#ff654a" stroke-width="2.5" stroke-dasharray="2 8" stroke-linecap="round"/><line x1="442" y1="60" x2="468" y2="60" stroke="#ff654a" stroke-width="2.5" stroke-dasharray="2 8" stroke-linecap="round"/><rect x="241" y="12" width="204" height="104" rx="14" fill="#2d174c" opacity=".1"/><rect x="238" y="8" width="204" height="104" rx="14" fill="#ffffff" stroke="#ffffff" stroke-width="3"/><circle cx="264" cy="36" r="15" fill="#ffc857"/><text x="264" y="41" class="fig-chipnum" text-anchor="middle">G1</text><text x="288" y="41" class="fig-title" text-anchor="start">Control</text><text x="254" y="66" class="fig-desc" text-anchor="start">Entity, owners, advisers.</text><line x1="570" y1="112" x2="570" y2="146" stroke="#ff654a" stroke-width="2.5" stroke-dasharray="2 8" stroke-linecap="round"/><rect x="471" y="12" width="204" height="104" rx="14" fill="#2d174c" opacity=".1"/><rect x="468" y="8" width="204" height="104" rx="14" fill="#ffffff" stroke="#ffffff" stroke-width="3"/><circle cx="494" cy="36" r="15" fill="#ffc857"/><text x="494" y="41" class="fig-chipnum" text-anchor="middle">G2</text><text x="518" y="41" class="fig-title" text-anchor="start">Proof</text><text x="484" y="66" class="fig-desc" text-anchor="start">Sticker + workflow demo.</text><line x1="468" y1="198" x2="468" y2="198" stroke="#ff654a" stroke-width="2.5" stroke-dasharray="2 8" stroke-linecap="round"/><line x1="442" y1="198" x2="468" y2="198" stroke="#ff654a" stroke-width="2.5" stroke-dasharray="2 8" stroke-linecap="round"/><rect x="471" y="150" width="204" height="104" rx="14" fill="#2d174c" opacity=".1"/><rect x="468" y="146" width="204" height="104" rx="14" fill="#ffffff" stroke="#ffffff" stroke-width="3"/><circle cx="494" cy="174" r="15" fill="#ff654a"/><text x="494" y="179" class="fig-chipnum" text-anchor="middle">G3</text><text x="518" y="179" class="fig-title" text-anchor="start">Campaign ready</text><text x="484" y="204" class="fig-desc" text-anchor="start">Counsel + budget approved.</text><line x1="238" y1="198" x2="238" y2="198" stroke="#ff654a" stroke-width="2.5" stroke-dasharray="2 8" stroke-linecap="round"/><line x1="212" y1="198" x2="238" y2="198" stroke="#ff654a" stroke-width="2.5" stroke-dasharray="2 8" stroke-linecap="round"/><rect x="241" y="150" width="204" height="104" rx="14" fill="#2d174c" opacity=".1"/><rect x="238" y="146" width="204" height="104" rx="14" fill="#ffffff" stroke="#ffffff" stroke-width="3"/><circle cx="264" cy="174" r="15" fill="#ff654a"/><text x="264" y="179" class="fig-chipnum" text-anchor="middle">G4</text><text x="288" y="179" class="fig-title" text-anchor="start">Community round</text><text x="254" y="204" class="fig-desc" text-anchor="start">Regulated public raise.</text><line x1="110" y1="250" x2="110" y2="284" stroke="#ff654a" stroke-width="2.5" stroke-dasharray="2 8" stroke-linecap="round"/><rect x="11" y="150" width="204" height="104" rx="14" fill="#2d174c" opacity=".1"/><rect x="8" y="146" width="204" height="104" rx="14" fill="#ffffff" stroke="#ffffff" stroke-width="3"/><circle cx="34" cy="174" r="15" fill="#ff654a"/><text x="34" y="179" class="fig-chipnum" text-anchor="middle">G5</text><text x="58" y="179" class="fig-title" text-anchor="start">Beta build</text><text x="24" y="204" class="fig-desc" text-anchor="start">Funded workflows built.</text><line x1="212" y1="336" x2="238" y2="336" stroke="#ff654a" stroke-width="2.5" stroke-dasharray="2 8" stroke-linecap="round"/><line x1="212" y1="336" x2="238" y2="336" stroke="#ff654a" stroke-width="2.5" stroke-dasharray="2 8" stroke-linecap="round"/><rect x="11" y="288" width="204" height="104" rx="14" fill="#2d174c" opacity=".1"/><rect x="8" y="284" width="204" height="104" rx="14" fill="#ffffff" stroke="#ffffff" stroke-width="3"/><circle cx="34" cy="312" r="15" fill="#ff654a"/><text x="34" y="317" class="fig-chipnum" text-anchor="middle">G6</text><text x="58" y="317" class="fig-title" text-anchor="start">Rehearsal</text><text x="24" y="342" class="fig-desc" text-anchor="start">Every runbook passes.</text><line x1="442" y1="336" x2="468" y2="336" stroke="#ff654a" stroke-width="2.5" stroke-dasharray="2 8" stroke-linecap="round"/><line x1="442" y1="336" x2="468" y2="336" stroke="#ff654a" stroke-width="2.5" stroke-dasharray="2 8" stroke-linecap="round"/><rect x="241" y="288" width="204" height="104" rx="14" fill="#2d174c" opacity=".1"/><rect x="238" y="284" width="204" height="104" rx="14" fill="#ffffff" stroke="#ffffff" stroke-width="3"/><circle cx="264" cy="312" r="15" fill="#ff654a"/><text x="264" y="317" class="fig-chipnum" text-anchor="middle">G7</text><text x="288" y="317" class="fig-title" text-anchor="start">Austin beta</text><text x="254" y="342" class="fig-desc" text-anchor="start">Small, daily-reviewed,</text><text x="254" y="358" class="fig-desc" text-anchor="start">real.</text><rect x="471" y="288" width="204" height="104" rx="14" fill="#2d174c" opacity=".1"/><rect x="468" y="284" width="204" height="104" rx="14" fill="#ffffff" stroke="#ffffff" stroke-width="3"/><circle cx="494" cy="312" r="15" fill="#ff654a"/><text x="494" y="317" class="fig-chipnum" text-anchor="middle">G8</text><text x="518" y="317" class="fig-title" text-anchor="start">Decision</text><text x="484" y="342" class="fig-desc" text-anchor="start">Continue, revise, pause,</text><text x="484" y="358" class="fig-desc" text-anchor="start">stop.</text></svg>
+    </figure>
+    <article class="doc-body">
+<h2 id="how-we-ship-small-slices-real-evidence">How we ship: small slices, real evidence</h2>
+<p class="kicker">Delivery method · one backlog, vertical slices</p>
+<p class="lede-p">Use one prioritized backlog and ship vertical, independently testable slices — every work package ends with review evidence and a release decision.</p>
+
+<div class="callout callout-gate">
+  <b class="callout-title">Parallel work, gated activation</b>
+  <p>Engineering may proceed in parallel with entity/campaign/partner work, but no real financial or participant-impacting behavior is activated before its professional and operational gates pass.</p>
+</div>
+
+<h2 id="phase-0-take-control-before-building-anything-week-1">Phase 0 — Take control before building anything (week 1)</h2>
+<p class="kicker">Establish control · one source of truth</p>
+<p class="lede-p">Week one is about governance: who owns what, where the code lives, and which advisers are on call.</p>
+
+<ul>
+  <li>Approve PDR, scope, tech requirements, and authority model.</li>
+  <li>Create authoritative Git baseline; preserve story/static artifacts as references.</li>
+  <li>Pin dependencies; add CI build/lint/typecheck/test skeleton.</li>
+  <li>Create organization-owned GitHub/Vercel/Supabase/password/email workspaces with owners/MFA.</li>
+  <li>Open claims, risk, decision, vendor, service, and access registers.</li>
+  <li>Retain entity/securities, tax/accounting, insurance, privacy, and safeguarding advisers.</li>
+</ul>
+
+<div class="callout callout-info">
+  <b class="callout-title">Exit criteria</b>
+  <p>One source of truth, no personal-only production account, no <code>latest</code> dependencies, reproducible clean build, approved backlog, named gate owners.</p>
+</div>
+
+<h2 id="phase-1-prove-the-service-and-the-story-weeks-14">Phase 1 — Prove the service and the story (weeks 1–4)</h2>
+<p class="kicker">Prove the service and campaign story · physical + workflow proof</p>
+<p class="lede-p">Before deep engineering, show the whole loop works in the hand and on the page — and that the campaign can be honestly evaluated.</p>
+
+<ul>
+  <li>Service blueprint and role journeys.</li>
+  <li>Final name/domain decision and brand/rights cleanup.</li>
+  <li>Controlled click-through/demo of pass, scan, reveal, verification, obligation, review, and report.</li>
+  <li>Secure sticker/code specification and physical print proof.</li>
+  <li>Community-partner and business outreach package; letters of interest where available.</li>
+  <li>Entity/cap table and Wefunder Investor Warmup profile.</li>
+  <li>Bottom-up budget, SAFE recommendation, risks, perk BOM, campaign page/video storyboard.</li>
+</ul>
+
+<div class="callout callout-info">
+  <b class="callout-title">Exit criteria</b>
+  <p>Physical and workflow proof exists; campaign materials distinguish simulated from real; advisers/platform can evaluate the offering.</p>
+</div>
+
+<h2 id="phase-2-build-the-transaction-foundation-weeks-37">Phase 2 — Build the transaction foundation (weeks 3–7)</h2>
+<p class="kicker">Transaction foundation · the trustworthy core</p>
+<p class="lede-p">This phase builds the data model and flows that everything else — money, safety, accountability — depends on.</p>
+
+<ul>
+  <li>Revised migrations with organizations, roles, consent, custody, audit, idempotency, obligation/execution/correction, support/incident, and claims evidence.</li>
+  <li>RLS and database invariant tests.</li>
+  <li>Authentication/account lifecycle and MFA for privileged users.</li>
+  <li>Operator shell and role-specific navigation.</li>
+  <li>Sticker batch/code export, activation, assignment, custody, void/recall, and audit.</li>
+  <li>Public scan, offer reveal, claim, expiry, and help routes.</li>
+</ul>
+
+<div class="callout callout-info">
+  <b class="callout-title">Exit criteria</b>
+  <p>Synthetic end-to-end flow works in staging with denial tests, concurrency/idempotency tests, and no service-role credential in the browser.</p>
+</div>
+
+<h2 id="phase-3-make-redemption-verifiable-and-accountable-weeks-610">Phase 3 — Make redemption verifiable and accountable (weeks 6–10)</h2>
+<p class="kicker">Business verification and accountability · one redemption, one obligation</p>
+<p class="lede-p">The money question gets its answer here: every effective redemption creates exactly one balanced, reviewable obligation set.</p>
+
+<ul>
+  <li>Business qualification/onboarding, location/staff access, offer templates, custom review.</li>
+  <li>Authenticated no-POS redemption verification, idempotent replay, dispute/correction.</li>
+  <li>Transactional obligation creation under a versioned simulated/approved formula.</li>
+  <li>Finance review, dual approval, manual execution evidence, failure/reissue, reconciliation.</li>
+  <li>Distributor statement and sponsor aggregate report.</li>
+  <li>Fraud/risk queue and appeal path.</li>
+</ul>
+
+<div class="callout callout-info">
+  <b class="callout-title">Exit criteria</b>
+  <p>Automated tests prove one effective redemption creates one balanced obligation set; replay cannot duplicate; corrections preserve history; role access is bounded.</p>
+</div>
+
+<h2 id="phase-4-ready-the-people-side-safety-access-dignity-weeks-812">Phase 4 — Ready the people side: safety, access, dignity (weeks 8–12)</h2>
+<p class="kicker">Partner operations, safety, and accessibility · pilot readiness</p>
+<p class="lede-p">Before any real participant touches the system, the human protections have to be built, rehearsed, and signed for.</p>
+
+<ul>
+  <li>Participant eligibility/status, training, consent, accommodations, support, complaint, suspension, appeal, and exit.</li>
+  <li>Partner-assisted and printable/no-smartphone flows.</li>
+  <li>Incident and restricted-note controls.</li>
+  <li>Inventory receipt/transfer/return/loss/damage rehearsal.</li>
+  <li>WCAG 2.2 AA remediation and device/low-bandwidth testing.</li>
+  <li>Privacy data map, retention jobs, data-subject request workflow, security/incident tabletop.</li>
+</ul>
+
+<div class="callout callout-info">
+  <b class="callout-title">Exit criteria</b>
+  <p>Partner, safety, privacy/security, accessibility, support, and product owners sign pilot readiness; critical scenarios pass rehearsal.</p>
+</div>
+
+<h2 id="phase-5-launch-the-campaign-and-land-the-financing-parallel">Phase 5 — Launch the campaign and land the financing (parallel)</h2>
+<p class="kicker">Campaign launch and financing · earliest after readiness</p>
+<p class="lede-p">This phase runs in parallel and starts at the earliest point readiness allows — it funds the beta the rest of the plan describes.</p>
+
+<ul>
+  <li>Platform-approved issuer, Form C package, SAFE, terms, financial statements, risks, use of proceeds, perks, page, media, FAQ, and communications.</li>
+  <li>Six-week audience warmup and launch readiness.</li>
+  <li>Live Wefunder round, approved updates, investor support, and material-change controls.</li>
+  <li>Post-close funds receipt/accounting and investor reporting.</li>
+</ul>
+
+<div class="callout callout-gate">
+  <b class="callout-title">Exit criteria — and the honest shortfall rule</b>
+  <p>Usable proceeds cover the approved beta scenario after fees/reserves; finance approves the build/pilot budget. If the minimum is not reached, execute the disclosed shortfall plan rather than silently reducing participant/safety commitments.</p>
+</div>
+
+<h2 id="phase-6-rehearse-everything-before-its-real-weeks-1115-or-fund-dependent">Phase 6 — Rehearse everything before it's real (weeks 11–15 or fund-dependent)</h2>
+<p class="kicker">Production candidate and pilot rehearsal · full dress run</p>
+<p class="lede-p">The production candidate isn't done until the whole loop has been walked end to end with synthetic data and trained people.</p>
+
+<ul>
+  <li>Production environment, backups/restore, alerts, runbooks, access review, migration/rollback.</li>
+  <li>Final printer run and batch acceptance sampling.</li>
+  <li>Full synthetic dress rehearsal: partner onboarding → pack issue → scan → claim → business redemption → obligation → review/execution evidence → reconciliation → report → dispute/reversal.</li>
+  <li>Business and partner training completion.</li>
+  <li>Support schedule and incident bridge.</li>
+</ul>
+
+<div class="callout callout-info">
+  <b class="callout-title">Exit criteria</b>
+  <p>Zero critical/high unresolved release issues; all required approvals and signed agreements active; production smoke and restore pass.</p>
+</div>
+
+<h2 id="phase-7-start-small-in-austin-grow-only-on-proof-24-weeks">Phase 7 — Start small in Austin, grow only on proof (2–4 weeks)</h2>
+<p class="kicker">Controlled Austin beta · one partner, one business, one pack</p>
+<p class="lede-p">The beta begins deliberately tiny and earns each expansion.</p>
+
+<ol class="step-list">
+  <li data-n="01"><b>Start with the smallest real cohort</b><p>One partner, one business/location, one small pack, and a limited active distributor cohort.</p></li>
+  <li data-n="02"><b>Review daily</b><p>Review safety, fraud, support, inventory, redemption, obligations, and system health daily.</p></li>
+  <li data-n="03"><b>Expand only on passed gates</b><p>Expand toward the approved ceiling only after each cohort gate passes.</p></li>
+  <li data-n="04"><b>Learn and reconcile weekly</b><p>Conduct voluntary research and weekly reconciliation.</p></li>
+  <li data-n="05"><b>Claim nothing early</b><p>Publish no impact claim until evidence and privacy thresholds pass.</p></li>
+</ol>
+
+<h2 id="phase-8-decide-honestly-continue-revise-pause-or-stop">Phase 8 — Decide honestly: continue, revise, pause, or stop</h2>
+<p class="kicker">Exit and production decision · four honest outcomes</p>
+<p class="lede-p">The beta ends with a real decision, made against evidence, with all four outcomes on the table.</p>
+
+<div class="card-grid">
+  <div class="mini-card"><h4><span class="mini-icon">🟢</span>Continue</h4><p>Complete loop, reconciliation, safety, usability, business, and partner criteria pass.</p></div>
+  <div class="mini-card"><h4><span class="mini-icon">🟡</span>Revise</h4><p>Concept is viable but workflow, offer, support, or economics need bounded changes.</p></div>
+  <div class="mini-card"><h4><span class="mini-icon">⏸️</span>Pause</h4><p>Professional, safety, financial, privacy, partner, or technical gate fails.</p></div>
+  <div class="mini-card"><h4><span class="mini-icon">🔴</span>Stop</h4><p>No responsible operating model is achievable with available resources.</p></div>
+</div>
+
+<p>Whatever the outcome, produce: beta evidence report, remediation backlog, investor update, public aggregate report if approved, production operations budget, and decision on Austin expansion or future city readiness.</p>
+
+<h2 id="the-christmas-2026-objective-and-its-honest-limits">The Christmas 2026 objective — and its honest limits</h2>
+<p class="kicker">Critical path · objective, not guarantee</p>
+<p class="lede-p">The Christmas objective is achievable only if entity/platform preparation, physical proof, partner/business outreach, and engineering proceed in parallel and usable financing arrives by the beta-build decision.</p>
+
+<div class="callout callout-truth">
+  <b class="callout-title">Safety outranks the calendar</b>
+  <p>The non-negotiable fallback is pilot-ready or controlled-beta status by Christmas with exit in January; <strong>the schedule never overrides safety, financial classification, securities, privacy, or partner gates</strong>.</p>
+</div>
+
+<h2 id="the-weekly-rhythm-that-keeps-it-moving">The weekly rhythm that keeps it moving</h2>
+<p class="kicker">Weekly operating rhythm · plan, deliver, prove, review</p>
+<p class="lede-p">A simple cadence keeps the critical path visible and the evidence flowing.</p>
+
+<dl class="def-row">
+  <dt>Monday</dt><dd>Critical path, risks, decisions, budget, dependencies.</dd>
+  <dt>Tuesday–Thursday</dt><dd>Workstream delivery and test evidence.</dd>
+  <dt>Friday</dt><dd>Integrated demo, claims review, release gate, stakeholder update.</dd>
+  <dt>Daily during campaign/beta</dt><dd>Support, security, safety, financial, inventory, and platform health review.</dd>
+</dl>
+
+<h2 id="what-done-actually-means-here">What "done" actually means here</h2>
+<p class="kicker">Definition of done · the six-part bar</p>
+<p class="lede-p">A task is done only when every one of these is true.</p>
+
+<ul class="check-list">
+  <li>Its acceptance test passes.</li>
+  <li>Documentation/runbook is current.</li>
+  <li>Accessibility/security/privacy effects are reviewed.</li>
+  <li>Owner and backup can operate it.</li>
+  <li>Evidence is linked.</li>
+  <li>The change is merged through the approved repository process.</li>
+</ul>
+
+<div class="band">
+  <p class="callout-hand">Done means someone else could run it tomorrow — and prove it worked today.</p>
+</div>
+
+    </article>
+    
+  <nav class="doc-pager" aria-label="Package navigation">
+    <a href="19-required-tools-and-skills.html"><small>← Previous</small><b>19 · Required Tools, Installation, Setup, Skills, and Training</b></a>
+    <a class="next" href="21-traceability-and-release-gates.html"><small>Next →</small><b>21 · Traceability and Consistency Matrix</b></a>
+  </nav>
+    <footer class="doc-foot">
+      <span>StickerPass Concept-to-Production Planning Package</span>
+      <a href="index.html">Package index ↗</a>
+    </footer>
+  </main>
+  <script>
+const bar=document.getElementById("pb");
+const up=()=>{const r=document.documentElement,d=r.scrollHeight-r.clientHeight;
+bar.style.transform="scaleX("+(d>0?Math.min(1,r.scrollTop/d):0)+")"};
+document.addEventListener("scroll",up,{passive:true});up();
+</script>
+</body>
+</html>

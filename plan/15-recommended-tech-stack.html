@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>15 — Recommended Tech Stack — StickerPass Planning Package</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%232D174C'/%3E%3Cpath d='M100 0v100H38z' fill='%23FF654A'/%3E%3Ctext x='50' y='68' text-anchor='middle' font-family='Arial Black,sans-serif' font-size='52' font-weight='900' fill='%23FFF3DF'%3ES%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Inter:wght@400;500;600;700;800&family=Caveat:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="doc-style.css?v=4">
+</head>
+<body>
+  <div class="progress" aria-hidden="true"><span id="pb"></span></div>
+  <nav class="docbar" aria-label="Package navigation">
+    <a class="docbar-brand" href="index.html">
+      <span class="docbar-mark" aria-hidden="true">S</span>
+      <span class="docbar-title">Sticker<b>Pass</b> · Planning Package</span>
+    </a>
+    <div class="docbar-nav">
+      <a href="14-technical-requirements.html" aria-label="Previous document">←</a>
+      <a class="docbar-index" href="index.html">All documents</a>
+      <a href="16-required-assets.html" aria-label="Next document">→</a>
+    </div>
+  </nav>
+  <main class="doc">
+    <header class="doc-head">
+      <div class="doc-chapter"><b>Doc 15</b><span>Concept → production</span></div>
+      <h1>Recommended Tech Stack</h1>
+      <nav class="doc-toc" aria-label="On this page"><a href="#one-app-one-database-one-honest-path-to-launch">One app, one database, one honest path to launch</a><a href="#what-we-build-with-layer-by-layer">What we build with, layer by layer</a><a href="#pin-versions-so-releases-stay-boring">Pin versions so releases stay boring</a><a href="#four-environments-one-rule-about-real-data">Four environments, one rule about real data</a><a href="#six-decisions-that-keep-the-system-trustworthy">Six decisions that keep the system trustworthy</a><a href="#what-we-said-no-to-and-why">What we said no to, and why</a><a href="#spend-carefully-and-never-get-surprised-by-a-bill">Spend carefully, and never get surprised by a bill</a></nav>
+      <p class="doc-meta">≈ 5 min read <i>✦</i> source: 15-recommended-tech-stack.md</p>
+    </header>
+    
+    <section class="doc-story" aria-label="The heart of this document">
+      <div class="doc-story-sticker">
+        <img src="../assets/stickers/web/12-food-truck-rocket.png" alt="Food-Truck Rocket sticker — a small business achieving lift-off" loading="lazy" width="300" height="300">
+      </div>
+      <div class="doc-story-heart">
+        <p class="doc-heart-line">Boring, proven tools — because dependability is how software loves its users.</p>
+        <p class="doc-serves-line">This document serves the maintainers of 2027 — every choice optimizes for being understood, hired for, and repaired.</p>
+      </div>
+    </section>
+    <figure class="doc-fig">
+<svg viewBox="0 0 900 406" role="img" aria-label="The recommended stack in four dependable layers" class="fig-svg"><rect x="173" y="12" width="560" height="78" rx="14" fill="#2d174c" opacity=".1"/><rect x="170" y="8" width="560" height="78" rx="14" fill="#2d174c" stroke="#ffffff" stroke-width="3"/><text x="192" y="40" class="fig-title-inv" text-anchor="start">Experience</text><text x="192" y="62" class="fig-desc-inv" text-anchor="start">Next.js 16 + React 19 + TypeScript strict.</text><rect x="612" y="24" width="100" height="24" rx="12" fill="#b7f85b" /><text x="662" y="40" class="fig-tag" text-anchor="middle">web</text><line x1="450" y1="86" x2="450" y2="112" stroke="#ff654a" stroke-width="2.5" stroke-dasharray="2 8" stroke-linecap="round"/><rect x="173" y="116" width="560" height="78" rx="14" fill="#2d174c" opacity=".1"/><rect x="170" y="112" width="560" height="78" rx="14" fill="#ff654a" stroke="#ffffff" stroke-width="3"/><text x="192" y="144" class="fig-title-inv" text-anchor="start">Integrity</text><text x="192" y="166" class="fig-desc-inv" text-anchor="start">Zod validation, server-authorized actions.</text><rect x="612" y="128" width="100" height="24" rx="12" fill="#b7f85b" /><text x="662" y="144" class="fig-tag" text-anchor="middle">trust</text><line x1="450" y1="190" x2="450" y2="216" stroke="#ff654a" stroke-width="2.5" stroke-dasharray="2 8" stroke-linecap="round"/><rect x="173" y="220" width="560" height="78" rx="14" fill="#2d174c" opacity=".1"/><rect x="170" y="216" width="560" height="78" rx="14" fill="#191321" stroke="#ffffff" stroke-width="3"/><text x="192" y="248" class="fig-title-inv" text-anchor="start">Memory</text><text x="192" y="270" class="fig-desc-inv" text-anchor="start">Supabase PostgreSQL — RLS, state machines, audit.</text><rect x="612" y="232" width="100" height="24" rx="12" fill="#b7f85b" /><text x="662" y="248" class="fig-tag" text-anchor="middle">truth</text><line x1="450" y1="294" x2="450" y2="320" stroke="#ff654a" stroke-width="2.5" stroke-dasharray="2 8" stroke-linecap="round"/><rect x="173" y="324" width="560" height="78" rx="14" fill="#2d174c" opacity=".1"/><rect x="170" y="320" width="560" height="78" rx="14" fill="#43236b" stroke="#ffffff" stroke-width="3"/><text x="192" y="352" class="fig-title-inv" text-anchor="start">Operations</text><text x="192" y="374" class="fig-desc-inv" text-anchor="start">Vercel, GitHub, Vitest, Playwright, Sentry.</text><rect x="612" y="336" width="100" height="24" rx="12" fill="#b7f85b" /><text x="662" y="352" class="fig-tag" text-anchor="middle">ops</text></svg>
+    </figure>
+    <article class="doc-body">
+<h2 id="one-app-one-database-one-honest-path-to-launch">One app, one database, one honest path to launch</h2>
+<p class="kicker">Operating recommendation</p>
+<p class="lede-p">The whole beta lives in one organization-owned application, so nothing important belongs to only one person or one prototype.</p>
+
+<p>Consolidate the beta into one organization-owned Next.js application backed by Supabase/PostgreSQL and deployed through GitHub to Vercel. Preserve the story site as campaign content or migrate its approved sections into the unified application.</p>
+
+<div class="card-grid">
+  <div class="mini-card">
+    <h4><span class="mini-icon">🧑‍⚖️</span>Money stays human-reviewed</h4>
+    <p>Keep financial execution human-reviewed in beta. Software records the decision; people make it.</p>
+  </div>
+  <div class="mini-card">
+    <h4><span class="mini-icon">⏸️</span>AI and POS wait their turn</h4>
+    <p>Defer production AI and POS integrations. The core proof does not need them yet.</p>
+  </div>
+</div>
+
+<h2 id="what-we-build-with-layer-by-layer">What we build with, layer by layer</h2>
+<p class="kicker">Stack by layer — with an exit door on every choice</p>
+<p class="lede-p">Every layer below was chosen for one reason — it fits what already exists — and every one has a documented way out.</p>
+
+<div class="table-wrap"><table>
+  <thead>
+    <tr><th>Layer</th><th>Recommendation</th><th>Why it fits</th><th>Exit/fallback</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><strong>Language</strong></td><td>TypeScript with strict mode</td><td>Matches recovered source and reduces contract drift</td><td>Standards-based JS/SQL export</td></tr>
+    <tr><td><strong>Web framework</strong></td><td>Next.js 16 App Router, React 19; pin exact tested versions in lockfile/manifest</td><td>Both current applications already use this family</td><td>Portable Node application</td></tr>
+    <tr><td><strong>Styling</strong></td><td>Existing CSS/Tailwind 4 only where it reduces repetition; shared design tokens</td><td>Preserves brand while avoiding a second component system</td><td>Plain CSS remains portable</td></tr>
+    <tr><td><strong>Validation</strong></td><td>Zod at all server/public input boundaries</td><td>Typed runtime validation missing from current prototype</td><td>JSON Schema export if needed</td></tr>
+    <tr><td><strong>Database</strong></td><td>Managed Supabase PostgreSQL with SQL migrations</td><td>Existing schema, RLS, seed, and tests target PostgreSQL/Supabase</td><td>Nightly logical export to standard PostgreSQL</td></tr>
+    <tr><td><strong>Authentication</strong></td><td>Supabase Auth; MFA for privileged roles; passwordless links/OTP where appropriate</td><td>Integrates with RLS and reduces custom auth risk</td><td>Standard user/identity export</td></tr>
+    <tr><td><strong>File storage</strong></td><td>Supabase Storage for approved evidence/artifact uploads; public assets in app/CDN</td><td>Keeps access policies near application data</td><td>Scheduled bucket export</td></tr>
+    <tr><td><strong>Server execution</strong></td><td>Next.js route handlers/server actions for synchronous workflows; Supabase scheduled/edge jobs only for bounded background work</td><td>Matches Vercel deployment and current trust-boundary direction</td><td>Move workers to a standard Node worker if volume grows</td></tr>
+    <tr><td><strong>Deployment</strong></td><td>Vercel with GitHub preview, staging, and production projects/environments</td><td>Current story evidence already uses Vercel</td><td>Container/Node hosting path documented</td></tr>
+    <tr><td><strong>Source control</strong></td><td>GitHub private organization repository, protected main, pull requests, required checks</td><td>Existing story source is on GitHub; root lacks a safe baseline</td><td>Full Git clone/export</td></tr>
+    <tr><td><strong>Tests</strong></td><td>Vitest + React Testing Library; Playwright for E2E; pgTAP/SQL harness for database</td><td>Covers code, browser, RLS, and invariants</td><td>Tests run locally and in CI</td></tr>
+    <tr><td><strong>CI/CD</strong></td><td>GitHub Actions for lint, typecheck, unit, SQL, build, E2E smoke; Vercel deploy after checks</td><td>Clear release gates and auditable history</td><td>CI scripts remain standard shell/npm</td></tr>
+    <tr><td><strong>Monitoring</strong></td><td>Vercel logs/analytics for platform health plus Sentry for errors/traces with data scrubbing</td><td>Production diagnosis requires correlation and alerts</td><td>Structured logs export; disable Sentry without product outage</td></tr>
+    <tr><td><strong>Product analytics</strong></td><td>First-party, purpose-limited event tables and aggregate reports</td><td>Avoids selling or broadly exporting sensitive behavior</td><td>CSV/SQL aggregate export</td></tr>
+    <tr><td><strong>Email</strong></td><td>Resend or equivalent transactional email only after account/processor approval</td><td>Auth, business, support, and operational notices require deliverability</td><td>Provider adapter and exportable templates</td></tr>
+    <tr><td><strong>Support</strong></td><td>Shared support inbox for campaign; role-based case queue in StickerPass for participant/transaction matters</td><td>Sensitive cases should not live only in generic SaaS tickets</td><td>CSV/PDF case export with access controls</td></tr>
+    <tr><td><strong>Accounting</strong></td><td>Qualified adviser-selected small-business ledger/accounting system; import approved aggregate transactions, not raw profiles</td><td>Financial reconciliation is required but provider is not yet selected</td><td>CSV journal/export contract</td></tr>
+    <tr><td><strong>Crowdfunding</strong></td><td>Wefunder Community Round for investigation; Investor Warmup before live offering</td><td>Aligns with for-profit/community-ownership interest</td><td>Reward campaign or private financing only after revised approval</td></tr>
+    <tr><td><strong>AI</strong></td><td>Exclude from beta-critical workflows; Oracle may be a campaign demo behind disclosure, rate limits, and a kill switch</td><td>Current implementation is demonstration-grade and nonessential</td><td>Static curated responses/story content</td></tr>
+    <tr><td><strong>Payments/value</strong></td><td>Manual approved execution recorded in platform; provider integration only after legal/operating determination</td><td>Existing roadmap already permits human execution</td><td>Provider-neutral execution record and CSV batch</td></tr>
+  </tbody>
+</table></div>
+
+<div class="callout callout-truth">
+  <b class="callout-title">No layer is a trap</b>
+  <p>Every recommendation above comes with an export or fallback route. If a vendor changes, the community's data and the program's history come with us.</p>
+</div>
+
+<h2 id="pin-versions-so-releases-stay-boring">Pin versions so releases stay boring</h2>
+<p class="kicker">Version policy</p>
+<p class="lede-p">Nothing in this stack is allowed to change under our feet — upgrades happen on purpose, with tests, or not at all.</p>
+
+<ul>
+  <li>Replace every <code>latest</code> dependency with an exact version that matches the verified lockfile baseline.</li>
+  <li>Use Node.js 22 LTS for development and CI until a tested migration is approved.</li>
+  <li>Commit one lockfile per application; do not regenerate it casually.</li>
+  <li>Apply security patches through pull requests with automated tests; schedule framework/minor upgrades rather than allowing implicit drift.</li>
+  <li>Record production database extensions and CLI versions in repository documentation.</li>
+</ul>
+
+<h2 id="four-environments-one-rule-about-real-data">Four environments, one rule about real data</h2>
+<p class="kicker">Environment model</p>
+<p class="lede-p">Real people's information only ever lives where it is genuinely needed — production — and nowhere else.</p>
+
+<div class="table-wrap"><table>
+  <thead>
+    <tr><th>Environment</th><th>Data</th><th>Access</th><th>Purpose</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><strong>Local</strong></td><td>Synthetic fixtures only</td><td>Developer</td><td>Unit, UI, migration, RLS, and E2E development</td></tr>
+    <tr><td><strong>Preview</strong></td><td>Synthetic/seeded</td><td>Team/reviewer</td><td>Pull-request acceptance and campaign demos</td></tr>
+    <tr><td><strong>Staging</strong></td><td>Synthetic plus explicitly consented test accounts</td><td>Restricted operators</td><td>Release rehearsal, print/code QA, integrations</td></tr>
+    <tr><td><strong>Production</strong></td><td>Minimum necessary real data</td><td>Least privilege + MFA</td><td>Controlled campaign and Austin beta</td></tr>
+  </tbody>
+</table></div>
+
+<div class="callout callout-gate">
+  <b class="callout-title">Hard boundary on real data and secrets</b>
+  <p>No production database copy may be used in local/preview. Secrets are stored in platform environment stores and an organization password manager, never in source or chat.</p>
+</div>
+
+<h2 id="six-decisions-that-keep-the-system-trustworthy">Six decisions that keep the system trustworthy</h2>
+<p class="kicker">Architecture decisions</p>
+<p class="lede-p">These are the load-bearing choices — each one exists to protect a promise the program makes to people.</p>
+
+<div class="card-grid cols-3">
+  <div class="mini-card">
+    <h4><span class="mini-icon">🗄️</span>1 · One source of truth</h4>
+    <p>PostgreSQL owns state; UI projections never create financial truth.</p>
+  </div>
+  <div class="mini-card">
+    <h4><span class="mini-icon">🎭</span>2 · Anonymous-first recipients</h4>
+    <p>Optional profile data is separable from claim/redemption.</p>
+  </div>
+  <div class="mini-card">
+    <h4><span class="mini-icon">🛡️</span>3 · Server-authorized writes</h4>
+    <p>Clients request transitions; server/database validates them.</p>
+  </div>
+  <div class="mini-card">
+    <h4><span class="mini-icon">📜</span>4 · Append-only accountability</h4>
+    <p>Inventory custody, state transitions, audit, obligations, executions, and corrections preserve history.</p>
+  </div>
+  <div class="mini-card">
+    <h4><span class="mini-icon">🔌</span>5 · Provider adapters</h4>
+    <p>Email, campaign data, accounting export, and future payment providers sit behind small interfaces.</p>
+  </div>
+  <div class="mini-card">
+    <h4><span class="mini-icon">🧘</span>6 · No premature complexity</h4>
+    <p>Pilot scale does not justify microservices, Kafka, blockchain, or multiple databases.</p>
+  </div>
+</div>
+
+<p class="callout-hand">Simple enough to trust, honest enough to audit.</p>
+
+<h2 id="what-we-said-no-to-and-why">What we said no to, and why</h2>
+<p class="kicker">Alternatives considered</p>
+<p class="lede-p">Each of these was weighed seriously — and set aside for a reason we can say out loud.</p>
+
+<ul class="x-list">
+  <li><strong>Firebase</strong> — rejected as primary because the existing relational/ledger/RLS design and SQL tests favor PostgreSQL.</li>
+  <li><strong>Custom Express API</strong> — deferred; Next.js server routes are sufficient at pilot scale and reduce deployment surface.</li>
+  <li><strong>Native mobile apps</strong> — deferred; responsive web and partner-assisted access cover the approved beta.</li>
+  <li><strong>Stripe Connect or payout provider now</strong> — deferred until participant-value classification, identity, and custody are approved.</li>
+  <li><strong>Third-party behavioral ad platform</strong> — excluded because the concept promises not to sell personal data and should retain control of sensitive measurement.</li>
+  <li><strong>Full AI personalization</strong> — deferred due privacy, moderation, cost, reliability, and lack of necessity for the core proof.</li>
+</ul>
+
+<h2 id="spend-carefully-and-never-get-surprised-by-a-bill">Spend carefully, and never get surprised by a bill</h2>
+<p class="kicker">Cost-control rules</p>
+<p class="lede-p">Every dollar this project spends on tooling should be planned, owned, and watched.</p>
+
+<ol class="step-list">
+  <li data-n="01"><b>Start free where it's honest</b><p>Begin on free/developer tiers only where terms permit real beta use; budget production tiers before launch.</p></li>
+  <li data-n="02"><b>Give every paid service an owner</b><p>Assign account owner, billing owner, backup admin, monthly ceiling, alert threshold, export route, and cancellation procedure for every paid service.</p></li>
+  <li data-n="03"><b>Never launch on one person's account</b><p>Do not launch a campaign or beta on personal-only accounts with no backup administrator.</p></li>
+  <li data-n="04"><b>Review before limits bite</b><p>Reassess service tiers at 50%, 75%, and 90% of included usage.</p></li>
+</ol>
+
+<div class="band">
+  <p><strong>The stack in one sentence:</strong> boring, proven tools that fit what already exists, with an exit door on every layer — so the technology serves the people, and never the other way around. Next: <a href="16-required-assets.html">16 — Required Assets</a>.</p>
+</div>
+
+    </article>
+    
+  <nav class="doc-pager" aria-label="Package navigation">
+    <a href="14-technical-requirements.html"><small>← Previous</small><b>14 · Technical Requirements Specification</b></a>
+    <a class="next" href="16-required-assets.html"><small>Next →</small><b>16 · Required Assets</b></a>
+  </nav>
+    <footer class="doc-foot">
+      <span>StickerPass Concept-to-Production Planning Package</span>
+      <a href="index.html">Package index ↗</a>
+    </footer>
+  </main>
+  <script>
+const bar=document.getElementById("pb");
+const up=()=>{const r=document.documentElement,d=r.scrollHeight-r.clientHeight;
+bar.style.transform="scaleX("+(d>0?Math.min(1,r.scrollTop/d):0)+")"};
+document.addEventListener("scroll",up,{passive:true});up();
+</script>
+</body>
+</html>

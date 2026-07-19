@@ -1,0 +1,15 @@
+/* Deep-link section preview (?section=<id>) — isolates one section for embeds. */
+.section-preview .hero,
+.section-preview .marquee,
+.section-preview main > section:not(.section-preview-target),
+.section-preview footer { display: none; }
+.section-preview .section-preview-target { margin: 0 auto; min-height: 100vh; }
+
+/* Small-screen overflow guards. */
+@media (max-width: 650px) {
+  body { overflow-x: hidden; }
+  .hero-copy { min-width: 0; }
+  .hero-copy .eyebrow,
+  .hero-copy .lede { max-width: 100%; overflow-wrap: anywhere; }
+  .status-row .pill { white-space: normal; text-align: center; }
+}
