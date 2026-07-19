@@ -405,6 +405,34 @@ h1 em {
 }
 
 /* ============================================================
+   01B · FOUNDING COLLECTION
+   ============================================================ */
+.collection-grid {
+  display: grid; grid-template-columns: repeat(5, 1fr);
+  gap: 1.6rem 1.2rem; align-items: end;
+}
+.collection-grid figure { margin: 0; text-align: center; }
+.collection-grid img {
+  width: 100%; max-width: 220px; height: auto;
+  filter: drop-shadow(0 10px 20px rgba(45,23,76,.25));
+  transition: rotate .35s cubic-bezier(.34,1.56,.64,1), scale .35s ease;
+}
+.collection-grid figure:nth-child(odd) img  { rotate: -3deg; }
+.collection-grid figure:nth-child(even) img { rotate: 3deg; }
+.collection-grid figure:hover img { rotate: 0deg; scale: 1.09; }
+.collection-grid figcaption {
+  margin-top: .5rem;
+  font-family: var(--font-hand); font-size: 1.15rem; line-height: 1.1;
+  color: var(--coral-deep);
+}
+.collection-note {
+  margin: 2.4rem 0 0; text-align: center;
+  font-size: .85rem; font-weight: 650; color: var(--muted);
+}
+@media (max-width: 1080px) { .collection-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 640px)  { .collection-grid { grid-template-columns: repeat(2, 1fr); gap: 1.2rem .9rem; } }
+
+/* ============================================================
    02 · LOOP  (dark)
    ============================================================ */
 .loop-section {
