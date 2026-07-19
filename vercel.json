@@ -1,4 +1,8 @@
 {
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "redirects": [
+    { "source": "/plan", "destination": "/playbook/docs", "permanent": true },
+    { "source": "/plan/:path*", "destination": "/playbook/docs/:path*", "permanent": true }
+  ]
 }

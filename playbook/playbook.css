@@ -1,0 +1,27 @@
+/* Worth Keeping playbook — additions over doc-style.css */
+.pbk { max-width: 980px; }
+.pb-nav { flex-wrap: wrap; }
+.pb-heart { font-family: var(--font-hand); font-size: 1.45rem; line-height: 1.3; color: var(--coral-deep); max-width: 640px; }
+.task-group { margin: 2.4rem 0; }
+.task-group h3 { font-family: var(--font-display); font-weight: 700; color: var(--purple); border-top: 2px dashed var(--line); padding-top: 1.4rem; }
+.task-count { font-family: var(--font-body); font-size: .72rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-left: .6rem; }
+.task-list-pb { list-style: none; margin: 1rem 0 0; padding: 0; display: grid; gap: .7rem; }
+.task { display: grid; grid-template-columns: 2rem 1fr; gap: .8rem; background: #fff; border: 1.5px solid var(--line); border-radius: 14px; padding: 1rem 1.2rem; }
+.task.done { opacity: .72; }
+.task-check { width: 1.5rem; height: 1.5rem; border-radius: 8px; border: 2.5px solid var(--coral); display: grid; place-items: center; font-weight: 900; color: var(--purple); background: #fff; translate: 0 2px; }
+.task.done .task-check { background: var(--lime); border-color: var(--purple); }
+.task-top { display: flex; align-items: center; gap: .7rem; flex-wrap: wrap; }
+.task-top b { font-family: var(--font-display); font-weight: 700; color: var(--purple); font-size: 1.02rem; }
+.task-what { margin: .35rem 0 0; font-size: .92rem; }
+.task-why { margin: .3rem 0 0; font-size: .85rem; color: var(--coral-deep); }
+.task-done { margin: .3rem 0 0; font-size: .78rem; color: var(--muted); }
+.task-done a { color: var(--coral-deep); font-weight: 700; text-decoration: none; border-bottom: 1.5px solid rgba(255,101,74,.4); }
+.gate-grid-pb { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 1.6rem 0 2.4rem; }
+.gate-card { display: flex; flex-direction: column; gap: .3rem; text-decoration: none; background: #fff; border: 4px solid #fff; border-radius: var(--radius-sticker); box-shadow: var(--shadow-sticker); padding: 1.1rem 1.2rem; transition: translate .25s ease, background .2s ease; }
+.gate-card:hover { translate: 0 -5px; background: var(--lime); }
+.gate-id { font-family: var(--font-display); font-weight: 800; font-size: 1.5rem; color: var(--coral); }
+.gate-title { font-weight: 750; color: var(--purple); }
+.gate-meta { font-size: .74rem; color: var(--muted); display: flex; gap: .5rem; align-items: center; }
+.role-card .role-gates { margin-top: .5rem; font-size: .74rem; font-weight: 800; letter-spacing: .05em; text-transform: uppercase; color: var(--coral-deep); }
+.pb-empty { color: var(--muted); }
+@media (max-width: 800px) { .gate-grid-pb { grid-template-columns: repeat(2, 1fr); } .pb-nav a:not(.docbar-index):not(.active) { display: none; } }

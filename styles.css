@@ -405,6 +405,61 @@ h1 em {
 }
 
 /* ============================================================
+   01 · THE INVERSION
+   ============================================================ */
+.inversion-grid {
+  display: grid; grid-template-columns: 1.05fr .95fr;
+  gap: clamp(2rem, 5vw, 4rem); align-items: center;
+}
+.inversion-art { margin: 0; }
+.inversion-art img {
+  width: 100%; height: auto; display: block;
+  border-radius: var(--radius); border: 6px solid #fff;
+  box-shadow: var(--shadow-pop);
+  transform: rotate(1deg);
+}
+.inversion-art figcaption {
+  margin-top: .9rem; text-align: center;
+  font-family: var(--font-hand); font-size: 1.35rem; color: var(--coral-deep);
+}
+.callout-hand-strip {
+  margin-top: 1.8rem; display: inline-block;
+  font-family: var(--font-hand); font-size: clamp(1.4rem, 2.6vw, 1.8rem);
+  line-height: 1.25; color: var(--purple);
+  background: var(--gold); padding: .6rem 1.1rem; border-radius: 10px;
+  transform: rotate(-.8deg);
+  box-shadow: 0 4px 12px rgba(45,23,76,.15);
+}
+
+/* exchange extra role icons */
+.icon-art       { background: var(--coral); }
+.icon-community { background: #e8dff2; }
+
+/* four-beat public loop */
+.loop-four { grid-template-columns: repeat(4, 1fr); }
+.loop-four article { min-height: 170px; }
+.loop-four h3 { font-size: 1.35rem; }
+.loop-four p { font-size: .92rem; }
+
+/* money section fineprint spacing */
+.money .arch-flow { margin-bottom: 1rem; }
+.money .fineprint { font-size: .85rem; font-weight: 650; color: var(--purple); }
+
+/* promise cards: ALWAYS tags in lime */
+.guardrails article em.always, .guardrails article:nth-child(-n+2) em {
+  background: var(--lime); color: var(--purple);
+  box-shadow: 0 3px 8px rgba(45,23,76,.2);
+}
+
+@media (max-width: 900px) {
+  .inversion-grid { grid-template-columns: 1fr; }
+  .loop-four { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px) {
+  .loop-four { grid-template-columns: 1fr; }
+}
+
+/* ============================================================
    01B · FOUNDING COLLECTION
    ============================================================ */
 .collection-grid {

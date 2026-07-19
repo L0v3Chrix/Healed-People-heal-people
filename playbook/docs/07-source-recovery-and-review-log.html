@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>07 — Source Recovery and Review Log — Worth Keeping Planning Package</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%232D174C'/%3E%3Cpath d='M100 0v100H38z' fill='%23FF654A'/%3E%3Ctext x='50' y='68' text-anchor='middle' font-family='Arial Black,sans-serif' font-size='52' font-weight='900' fill='%23FFF3DF'%3EW%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Inter:wght@400;500;600;700;800&family=Caveat:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/playbook/docs/doc-style.css?v=4">
+</head>
+<body>
+  <div class="progress" aria-hidden="true"><span id="pb"></span></div>
+  <nav class="docbar" aria-label="Package navigation">
+    <a class="docbar-brand" href="/playbook/docs">
+      <span class="docbar-mark" aria-hidden="true">W</span>
+      <span class="docbar-title">Worth&nbsp;<b>Keeping</b> · Planning Package</span>
+    </a>
+    <div class="docbar-nav">
+      <a href="/playbook/docs/06-required-skills-readiness-matrix" aria-label="Previous document">←</a>
+      <a class="docbar-index" href="/playbook/docs">All documents</a>
+      <a href="/playbook/docs/08-interview-answer-sheet" aria-label="Next document">→</a>
+    </div>
+  </nav>
+  <main class="doc">
+    <header class="doc-head">
+      <div class="doc-chapter"><b>Doc 07</b><span>Concept → production</span></div>
+      <h1>Source Recovery and Review Log</h1>
+      <nav class="doc-toc" aria-label="On this page"><a href="#recover-the-real-files-the-recovery-boundary">Recover the real files — the recovery boundary</a><a href="#three-review-passes-one-honest-picture">Three review passes, one honest picture</a><a href="#six-conflicts-the-interview-must-settle">Six conflicts the interview must settle</a><a href="#what-production-readiness-is-still-missing">What production readiness is still missing</a><a href="#prove-the-bytes-the-integrity-result">Prove the bytes — the integrity result</a><a href="#run-it-in-a-sandbox-isolated-executable-verification">Run it in a sandbox — isolated executable verification</a><a href="#name-what-stayed-unreadable-remaining-placeholders">Name what stayed unreadable — remaining placeholders</a></nav>
+      <p class="doc-meta">≈ 4 min read <i>✦</i> source: 07-source-recovery-and-review-log.md</p>
+    </header>
+    
+    <section class="doc-story" aria-label="The heart of this document">
+      <div class="doc-story-sticker">
+        <img src="/assets/stickers/web/09-barton-springs-ripple.png" alt="Barton Springs Ripple sticker — rings expanding across spring water" loading="lazy" width="300" height="300">
+      </div>
+      <div class="doc-story-heart">
+        <p class="doc-heart-line">Three passes, because skimming someone's work isn't the same as honoring it.</p>
+        <p class="doc-serves-line">This document serves the original creators — their recovered work was read, re-read, and verified before a single conclusion was drawn.</p>
+      </div>
+    </section>
+    <figure class="doc-fig">
+<svg viewBox="0 0 680 120" role="img" aria-label="Every source asset earned three documented review passes" class="fig-svg"><line x1="212" y1="60" x2="238" y2="60" stroke="#ff654a" stroke-width="2.5" stroke-dasharray="2 8" stroke-linecap="round"/><line x1="212" y1="60" x2="238" y2="60" stroke="#ff654a" stroke-width="2.5" stroke-dasharray="2 8" stroke-linecap="round"/><rect x="11" y="12" width="204" height="104" rx="14" fill="#2d174c" opacity=".1"/><rect x="8" y="8" width="204" height="104" rx="14" fill="#ffffff" stroke="#ffffff" stroke-width="3"/><circle cx="34" cy="36" r="15" fill="#ffc857"/><text x="34" y="41" class="fig-chipnum" text-anchor="middle">01</text><text x="58" y="41" class="fig-title" text-anchor="start">Pass one</text><text x="24" y="66" class="fig-desc" text-anchor="start">Open everything. Inventory</text><text x="24" y="82" class="fig-desc" text-anchor="start">without judgment.</text><line x1="442" y1="60" x2="468" y2="60" stroke="#ff654a" stroke-width="2.5" stroke-dasharray="2 8" stroke-linecap="round"/><line x1="442" y1="60" x2="468" y2="60" stroke="#ff654a" stroke-width="2.5" stroke-dasharray="2 8" stroke-linecap="round"/><rect x="241" y="12" width="204" height="104" rx="14" fill="#2d174c" opacity=".1"/><rect x="238" y="8" width="204" height="104" rx="14" fill="#ffffff" stroke="#ffffff" stroke-width="3"/><circle cx="264" cy="36" r="15" fill="#ffc857"/><text x="264" y="41" class="fig-chipnum" text-anchor="middle">02</text><text x="288" y="41" class="fig-title" text-anchor="start">Pass two</text><text x="254" y="66" class="fig-desc" text-anchor="start">Deep read. Understand</text><text x="254" y="82" class="fig-desc" text-anchor="start">intent and structure.</text><rect x="471" y="12" width="204" height="104" rx="14" fill="#2d174c" opacity=".1"/><rect x="468" y="8" width="204" height="104" rx="14" fill="#ffffff" stroke="#ffffff" stroke-width="3"/><circle cx="494" cy="36" r="15" fill="#ffc857"/><text x="494" y="41" class="fig-chipnum" text-anchor="middle">03</text><text x="518" y="41" class="fig-title" text-anchor="start">Pass three</text><text x="484" y="66" class="fig-desc" text-anchor="start">Verify, cross-reference,</text><text x="484" y="82" class="fig-desc" text-anchor="start">and log conclusions.</text></svg>
+    </figure>
+    <article class="doc-body">
+<h2 id="recover-the-real-files-the-recovery-boundary">Recover the real files — the recovery boundary</h2>
+<p class="kicker">Where the reviewed source actually came from</p>
+<p class="lede-p">The local Dropbox File Provider exposed many zero-block <code>dataless</code> placeholders, so review could not trust the workspace copy alone.</p>
+
+<p>The linked personal Dropbox account was already authenticated in Chrome, so the following folders were downloaded separately and extracted into an isolated temporary directory rather than overwriting the workspace:</p>
+
+<ul class="check-list">
+  <li><code>src/</code></li>
+  <li><code>supabase/</code></li>
+  <li><code>docs/</code></li>
+  <li><code>public/</code></li>
+  <li><code>deliverables/</code></li>
+</ul>
+
+<div class="callout callout-info">
+  <b class="callout-title">Both sources verified before review</b>
+  <p>All five ZIP archives passed integrity testing before review. The nested story project was reviewed from an authoritative private Git recovery at the workspace-recorded revision.</p>
+</div>
+
+<h2 id="three-review-passes-one-honest-picture">Three review passes, one honest picture</h2>
+<p class="kicker">How the corpus was read</p>
+<p class="lede-p">The recovered material was reviewed in three deliberate passes, each with a different question in mind.</p>
+
+<ol class="step-list">
+  <li data-n="01"><b>Pass 1 — Intent and inventory</b><p>Read the complete recovered text/source corpus and inspected the visuals to identify audiences, product promise, role flows, entities, prototype behavior, and the difference between concept, mock, and implemented capability.</p></li>
+  <li data-n="02"><b>Pass 2 — Consistency and requirements</b><p>Cross-searched and reread the corpus for operational and financial commitments, including <code>micro-grant</code>, payout, staff PIN, overhead, review windows, retention, pilot quantities, reward weights, nonprofit/fiscal-sponsor language, partner claims, manual versus instant handling, service-role access, and illustrative labels.</p></li>
+  <li data-n="03"><b>Pass 3 — Production scrutiny</b><p>Reviewed the implementation for security, money integrity, privacy, fraud controls, accessibility, responsive behavior, evidence quality, and test coverage.</p></li>
+</ol>
+
+<div class="callout callout-truth">
+  <b class="callout-title">Key outcome of Pass 1</b>
+  <p>The public prototype, static explainer, technical roadmap, schema, and story site are <strong>different maturity layers</strong>. None alone is an approved production specification.</p>
+</div>
+
+<h2 id="six-conflicts-the-interview-must-settle">Six conflicts the interview must settle</h2>
+<p class="kicker">Pass 2 findings — where the story disagrees with itself</p>
+<p class="lede-p">These conflicts require interview decisions before any of the affected copy, schema, or numbers can be treated as requirements.</p>
+
+<ol>
+  <li>The pledge graphic says the distributor receives a micro-grant <em>instantly</em>; the roadmap and explainer describe <em>manual payout after review</em>.</li>
+  <li>The roadmap claims redemption creates two pledge-ledger rows, but the migration contains no redemption-to-ledger trigger.</li>
+  <li>&ldquo;Micro-grant&rdquo; is embedded in public copy and schema even though classification, tax treatment, payout rails, and legal structure are unresolved.</li>
+  <li>Staff PIN, 20% overhead, seven-day review, 90-day retention, pilot quantities, and 70/20/8/2 rarity weights are proposals or fixtures&mdash;not approved requirements.</li>
+  <li>Four separately named community/hero PNGs are exactly the same file.</li>
+  <li>The marketing prototype presents dashboard and Studio behavior that is client-only and not persisted.</li>
+</ol>
+
+<h2 id="what-production-readiness-is-still-missing">What production readiness is still missing</h2>
+<p class="kicker">Pass 3 findings — notable readiness gaps</p>
+<p class="lede-p">The implementation review surfaced gaps that must close before the system can be trusted with real money and real people.</p>
+
+<ul class="x-list">
+  <li>The service-role route layer is the central authorization boundary but is not present in the recovered app source.</li>
+  <li>The database does not enforce several roadmap claims: atomic offer-cap decrement, two-way ledger split creation, per-redemption split uniqueness, distributor identity/authentication, payout-to-ledger foreign keys, event idempotency, audit logging, retention, or daily redemption ceilings.</li>
+  <li>Current tests do not exercise sponsor self-read RLS, race conditions, service-role authorization, ledger correction/reversal rules, fraud freezes, or retention.</li>
+  <li>Sponsor-readable offer rows include <code>confirm_pin_hash</code>, which needs threat-model review.</li>
+  <li>Static sites load Google Fonts remotely; the main app has reduced-motion and focus treatments, while the roadmap has weaker explicit keyboard-focus treatment.</li>
+  <li>Generated visuals contain exact-looking metrics and &ldquo;instant&rdquo; financial claims that cannot be used as production evidence.</li>
+</ul>
+
+<h2 id="prove-the-bytes-the-integrity-result">Prove the bytes — the integrity result</h2>
+<p class="kicker">Same files, same bytes, three times</p>
+<p class="lede-p">The recovered source set and story source were byte-read three times after extraction, and every pass agreed.</p>
+
+<div class="stat-row">
+  <div class="stat"><b>59</b><span>files per pass</span></div>
+  <div class="stat"><b>34,317,925</b><span>bytes per pass</span></div>
+  <div class="stat"><b>3</b><span>identical read passes</span></div>
+</div>
+
+<p>Aggregate SHA-256 for every pass:</p>
+<pre><code>299e338292efdbf07d00726b4b25a44b4b1592cceb5849bd392b288fa9c83e76</code></pre>
+
+<h2 id="run-it-in-a-sandbox-isolated-executable-verification">Run it in a sandbox — isolated executable verification</h2>
+<p class="kicker">Builds and syntax checks, nothing overwritten</p>
+<p class="lede-p">Verification used temporary copies and did not overwrite the Dropbox workspace.</p>
+
+<ul class="check-list">
+  <li><strong>Main application</strong>: production build passed after the temporary harness supplied the <code>@/*</code> source alias unavailable from the unread original <code>tsconfig.json</code>; TypeScript passed and <code>/</code> prerendered.</li>
+  <li><strong>Story application</strong>: clean lockfile install and production build passed; <code>/</code> prerendered and <code>/api/oracle</code> built as a dynamic route.</li>
+  <li><strong>Static explainer JavaScript</strong>: syntax pass.</li>
+  <li><strong>Static technical-roadmap JavaScript</strong>: syntax pass.</li>
+  <li><strong>Database verification shell script</strong>: syntax pass.</li>
+</ul>
+
+<div class="callout callout-info">
+  <b class="callout-title">Two caveats from the runs</b>
+  <p><strong>Story build warning:</strong> missing <code>metadataBase</code> causes social metadata URLs to fall back to localhost during build. <strong>Supabase migrations/tests:</strong> not executed because the current machine has no callable Docker, Supabase CLI, or local Postgres test environment.</p>
+</div>
+
+<div class="callout callout-gate">
+  <b class="callout-title">What these checks do NOT prove</b>
+  <p>These checks prove build/syntax viability only. They do not prove the marketing mocks are implemented product workflows, the ledger invariants are complete, the database is deployed, or the operating/legal decisions are approved.</p>
+</div>
+
+<h2 id="name-what-stayed-unreadable-remaining-placeholders">Name what stayed unreadable — remaining placeholders</h2>
+<p class="kicker">17 files still blocked, and why</p>
+<p class="lede-p">A small set of workspace files never materialized locally, and the log records exactly what was tried and what was not.</p>
+
+<p>The root README, Brand Board, four root build/config artifacts, lockfile, and ten historical screenshots remain zero-block <code>dataless</code> placeholders. They are recorded as 0/3 in the manifest and are excluded from final-plan claims until readable.</p>
+
+<h3 id="native-dropboxfinder-recovery-audit">Native Dropbox/Finder recovery audit</h3>
+
+<ul>
+  <li>Finder/Dropbox file information confirmed the 2.65 KB root README is <code>Online-Only</code>, uses <code>0 bytes</code> of disk space, and is expected to download when opened.</li>
+  <li>Finder continued to label the target files <code>Downloading</code>, but opening them did not materialize any blocks and the item action menu remained disabled during the false download state.</li>
+  <li>The Dropbox desktop process was given a normal quit/relaunch. macOS also performed a normal quit/restart of the user File Provider daemon after it had remained at unusually high CPU and multi-gigabyte memory usage.</li>
+  <li>The restarted provider immediately returned to high CPU and the same target files remained zero-block <code>dataless</code> placeholders.</li>
+  <li>A read-only <code>fileproviderctl check</code> against the Dropbox-Personal domain produced no output after more than one minute and was stopped. No repair, forced provider-extension termination, credential access, deletion, overwrite, or broad Dropbox mutation was attempted.</li>
+</ul>
+
+<div class="band">
+  <p><strong>Current conclusion:</strong> the remaining 17 files are blocked by the local Dropbox/File Provider state, not by missing filenames or an unissued download request. The isolated web recovery remains the authoritative source for the reviewed core application.</p>
+</div>
+
+    </article>
+    
+  <nav class="doc-pager" aria-label="Package navigation">
+    <a href="/playbook/docs/06-required-skills-readiness-matrix"><small>← Previous</small><b>06 · Required Skills Readiness Matrix</b></a>
+    <a class="next" href="/playbook/docs/08-interview-answer-sheet"><small>Next →</small><b>08 · Worth Keeping Interview Answer Sheet</b></a>
+  </nav>
+    <footer class="doc-foot">
+      <span>Worth Keeping Concept-to-Production Planning Package</span>
+      <a href="/playbook/docs">Package index ↗</a>
+    </footer>
+  </main>
+  <script>
+const bar=document.getElementById("pb");
+const up=()=>{const r=document.documentElement,d=r.scrollHeight-r.clientHeight;
+bar.style.transform="scaleX("+(d>0?Math.min(1,r.scrollTop/d):0)+")"};
+document.addEventListener("scroll",up,{passive:true});up();
+</script>
+</body>
+</html>

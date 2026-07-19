@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>14 — Technical Requirements Specification — Worth Keeping Planning Package</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%232D174C'/%3E%3Cpath d='M100 0v100H38z' fill='%23FF654A'/%3E%3Ctext x='50' y='68' text-anchor='middle' font-family='Arial Black,sans-serif' font-size='52' font-weight='900' fill='%23FFF3DF'%3EW%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Inter:wght@400;500;600;700;800&family=Caveat:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/playbook/docs/doc-style.css?v=4">
+</head>
+<body>
+  <div class="progress" aria-hidden="true"><span id="pb"></span></div>
+  <nav class="docbar" aria-label="Package navigation">
+    <a class="docbar-brand" href="/playbook/docs">
+      <span class="docbar-mark" aria-hidden="true">W</span>
+      <span class="docbar-title">Worth&nbsp;<b>Keeping</b> · Planning Package</span>
+    </a>
+    <div class="docbar-nav">
+      <a href="/playbook/docs/13-project-scope" aria-label="Previous document">←</a>
+      <a class="docbar-index" href="/playbook/docs">All documents</a>
+      <a href="/playbook/docs/15-recommended-tech-stack" aria-label="Next document">→</a>
+    </div>
+  </nav>
+  <main class="doc">
+    <header class="doc-head">
+      <div class="doc-chapter"><b>Doc 14</b><span>Concept → production</span></div>
+      <h1>Technical Requirements Specification</h1>
+      <nav class="doc-toc" aria-label="On this page"><a href="#where-the-system-begins-and-ends">Where the system begins and ends</a><a href="#nine-roles-each-with-hard-limits">Nine roles, each with hard limits</a><a href="#three-state-machines-that-keep-the-story-straight">Three state machines that keep the story straight</a><a href="#what-each-part-of-the-platform-must-do">What each part of the platform must do</a><a href="#the-data-the-system-must-keep-and-how">The data the system must keep — and how</a><a href="#ten-invariants-the-database-must-never-break">Ten invariants the database must never break</a><a href="#where-the-api-draws-its-lines">Where the API draws its lines</a><a href="#how-we-protect-people-and-their-data">How we protect people and their data</a><a href="#everyone-gets-in-the-door">Everyone gets in the door</a><a href="#how-reliable-it-has-to-be">How reliable it has to be</a><a href="#proof-before-people">Proof before people</a><a href="#the-last-gate-before-real-people">The last gate before real people</a></nav>
+      <p class="doc-meta">≈ 7 min read <i>✦</i> source: 14-technical-requirements.md</p>
+    </header>
+    
+    <section class="doc-story" aria-label="The heart of this document">
+      <div class="doc-story-sticker">
+        <img src="/assets/stickers/web/08-moontower-beacon.png" alt="Moontower Beacon sticker — an Austin moontower casting light" loading="lazy" width="300" height="300">
+      </div>
+      <div class="doc-story-heart">
+        <p class="doc-heart-line">These rules exist so a neighbor's trust can never be lost to a bug.</p>
+        <p class="doc-serves-line">This document serves every person who will ever scan a sticker — their safety is written into requirements, not left to good intentions.</p>
+      </div>
+    </section>
+    <figure class="doc-fig">
+<svg viewBox="0 0 900 302" role="img" aria-label="Three layers of technical requirement: public, trust boundary, truth" class="fig-svg"><rect x="173" y="12" width="560" height="78" rx="14" fill="#2d174c" opacity=".1"/><rect x="170" y="8" width="560" height="78" rx="14" fill="#2d174c" stroke="#ffffff" stroke-width="3"/><text x="192" y="40" class="fig-title-inv" text-anchor="start">Public experience</text><text x="192" y="62" class="fig-desc-inv" text-anchor="start">Anonymous-first scan, claim, consent, accessible help.</text><line x1="450" y1="86" x2="450" y2="112" stroke="#ff654a" stroke-width="2.5" stroke-dasharray="2 8" stroke-linecap="round"/><rect x="173" y="116" width="560" height="78" rx="14" fill="#2d174c" opacity=".1"/><rect x="170" y="112" width="560" height="78" rx="14" fill="#ff654a" stroke="#ffffff" stroke-width="3"/><text x="192" y="144" class="fig-title-inv" text-anchor="start">Trust boundary</text><text x="192" y="166" class="fig-desc-inv" text-anchor="start">Server-authorized transitions, validation, idempotency.</text><line x1="450" y1="190" x2="450" y2="216" stroke="#ff654a" stroke-width="2.5" stroke-dasharray="2 8" stroke-linecap="round"/><rect x="173" y="220" width="560" height="78" rx="14" fill="#2d174c" opacity=".1"/><rect x="170" y="216" width="560" height="78" rx="14" fill="#191321" stroke="#ffffff" stroke-width="3"/><text x="192" y="248" class="fig-title-inv" text-anchor="start">The truth</text><text x="192" y="270" class="fig-desc-inv" text-anchor="start">PostgreSQL with row-level security, audit, custody,</text><text x="192" y="286" class="fig-desc-inv" text-anchor="start">corrections.</text></svg>
+    </figure>
+    <article class="doc-body">
+<h2 id="where-the-system-begins-and-ends">Where the system begins and ends</h2>
+<p class="kicker">System boundary</p>
+<p class="lede-p">One responsive web platform — and the physical sticker is part of the system, not an accessory.</p>
+<p>Worth Keeping is one responsive web platform with public recipient routes and authenticated operational workspaces. The physical sticker and its controlled code are part of the system.</p>
+<div class="callout callout-truth">
+  <b class="callout-title">Never trust the browser</b>
+  <p>The platform must not trust the browser to authorize inventory, redemption, financial, claims, role, or audit transitions.</p>
+</div>
+
+<h2 id="nine-roles-each-with-hard-limits">Nine roles, each with hard limits</h2>
+<p class="kicker">Required roles</p>
+<p class="lede-p">Every role gets exactly what it needs — and an explicit list of what it may never do.</p>
+<div class="table-wrap"><table>
+  <thead><tr><th>Role</th><th>Required capabilities</th><th>Explicit prohibitions</th></tr></thead>
+  <tbody>
+    <tr><td>Recipient</td><td>Scan, view explanation/offer, optionally consent/profile, claim, redeem, request support</td><td>Cannot view distributor identity, sponsor financials, or operational records</td></tr>
+    <tr><td>Distributor</td><td>View assigned inventory, verified activity, expected/actual value status, training, help, appeal</td><td>Cannot activate inventory, verify own redemption, or alter accounting</td></tr>
+    <tr><td>Partner staff</td><td>Onboard/support distributors, issue/return packs, record accommodations/incidents, initiate cases</td><td>Cannot unilaterally approve and execute money movement</td></tr>
+    <tr><td>Business staff</td><td>View location offers and verify/correct eligible redemptions</td><td>Cannot see participant identity/value or other businesses</td></tr>
+    <tr><td>Business owner/sponsor</td><td>Manage approved locations/offers/funding inputs and view aggregate reports</td><td>Cannot access recipient profiles or raw distributor records</td></tr>
+    <tr><td>Support</td><td>View minimum case context, communicate, escalate, document resolution</td><td>Cannot alter immutable events or financial records</td></tr>
+    <tr><td>Finance reviewer</td><td>Review obligations, approve/reject batches, record execution and reconciliation</td><td>Cannot originate the verified redemption being approved without second review</td></tr>
+    <tr><td>Operator/admin</td><td>Configure approved entities, batches, offers, roles, queues, reports</td><td>Cannot bypass audit, idempotency, or dual-control rules</td></tr>
+    <tr><td>Auditor/read-only</td><td>View approved immutable events, reconciliations, access history, and reports</td><td>No write access</td></tr>
+  </tbody>
+</table></div>
+<div class="callout callout-gate">
+  <b class="callout-title">Access rules that never bend</b>
+  <p>Operator, finance, and organization-owner accounts require <strong>MFA</strong>. Recipient first scan requires <strong>no account</strong>. Distributor access must support partner assistance and a documented non-digital fallback.</p>
+</div>
+
+<h2 id="three-state-machines-that-keep-the-story-straight">Three state machines that keep the story straight</h2>
+<p class="kicker">Required state machines</p>
+<p class="lede-p">Every sticker, offer, and redemption moves through named states — nothing slips between them.</p>
+
+<h3 id="sticker-inventory">Sticker inventory</h3>
+<p><code>draft code → minted → print_exported → print_verified → activated → packed → assigned → passed → claimed → redeemed</code></p>
+<ul>
+  <li>Exception states: <code>quarantined</code>, <code>void</code>, <code>lost</code>, <code>stolen</code>, <code>damaged</code>, <code>recalled</code>, <code>expired</code>.</li>
+  <li>A terminal or exception transition must record actor, timestamp, reason, prior state, and correlation ID.</li>
+  <li>Printed codes remain unusable until batch activation.</li>
+</ul>
+
+<h3 id="offer-and-claim">Offer and claim</h3>
+<p>Offers: <code>draft → pending_approval → active → paused → retired</code></p>
+<p>Successful claims: <code>revealed → claimed → redemption_pending → redeemed</code>, with <code>expired</code>, <code>cancelled</code>, <code>disputed</code>, and <code>reversed</code> as controlled outcomes.</p>
+<p>Claim creation must atomically enforce availability, active dates, recipient/device abuse controls, and per-offer caps.</p>
+
+<h3 id="redemption-and-participant-value">Redemption and participant value</h3>
+<p><code>initiated → verified → obligation_created → under_review → approved → execution_pending → executed → reconciled</code></p>
+<ul>
+  <li>Exceptions: <code>verification_rejected</code>, <code>disputed</code>, <code>reversed</code>, <code>execution_failed</code>, <code>reissued</code>, <code>cancelled_by_authority</code>.</li>
+  <li>A verified redemption may produce exactly one obligation set under the versioned approved formula.</li>
+  <li>Corrections use compensating/reversal entries; financial history is never overwritten.</li>
+</ul>
+
+<h2 id="what-each-part-of-the-platform-must-do">What each part of the platform must do</h2>
+<p class="kicker">Functional requirements</p>
+<p class="lede-p">Five surfaces, one standard: clear for the person in front of it, accountable behind it.</p>
+
+<h3 id="public-recipient-experience">Public recipient experience</h3>
+<ul>
+  <li>Resolve a high-entropy public sticker code without exposing internal sequential IDs.</li>
+  <li>Explain the giver-first model before requesting optional profile data.</li>
+  <li>Display offer value, business, location, expiry, restrictions, accessibility, and redemption instructions before claim confirmation.</li>
+  <li>Support a low-bandwidth route with compressed media and no required animation.</li>
+  <li>Use granular consent for personalization and marketing; allow skip, withdrawal, export, and deletion where applicable.</li>
+  <li>Never expose distributor identity or expected participant value to the recipient.</li>
+</ul>
+
+<h3 id="business-and-verification">Business and verification</h3>
+<ul>
+  <li>Provide approved offer templates and a custom-offer submission path.</li>
+  <li>Require authenticated location staff or a controlled short-lived location session to verify redemption.</li>
+  <li>Do not store or expose a shared plaintext/PIN-equivalent secret in sponsor-readable offer data.</li>
+  <li>Accept an idempotency key for every verification attempt.</li>
+  <li>Record location, staff account, claim, timestamp, result, and correction lineage.</li>
+  <li>Provide an offline exception procedure; offline events remain pending until authenticated synchronization and review.</li>
+</ul>
+
+<h3 id="partnerdistributor-operations">Partner/distributor operations</h3>
+<ul>
+  <li>Record approval, training completion, consent version, accommodations, status, assigned partner, and support preference.</li>
+  <li>Transfer packs through counted custody events with sender/receiver acknowledgement.</li>
+  <li>Show the distributor plain-language counts for assigned/passed/claimed/redeemed activity and approved/executed value.</li>
+  <li>Provide a human support channel and partner-assisted statement when no reliable device exists.</li>
+  <li>Keep safety/incident details segregated from marketing and business reporting.</li>
+</ul>
+
+<h3 id="finance-and-accountability">Finance and accountability</h3>
+<ul>
+  <li>Version every formula, cap, fee/overhead rule, sponsor restriction, and effective date.</li>
+  <li>Create obligations within the same database transaction as the verified redemption or through a transactionally safe outbox worker with idempotent replay.</li>
+  <li>Require two distinct authorized actors for material approval and execution evidence.</li>
+  <li>Reconcile obligations, approved batches, provider/manual execution evidence, failures, reversals, and bank/accounting totals.</li>
+  <li>Generate participant statements and aggregate sponsor/impact reports without disclosing protected information.</li>
+</ul>
+
+<h3 id="operator-and-support">Operator and support</h3>
+<ul>
+  <li>Provide queues for pending offers, print batches, assignments, redemption exceptions, fraud flags, disputes, participant-value reviews, failed executions, incidents, consent/deletion requests, and claims approval.</li>
+  <li>Every administrative action requires a reason and appears in an append-only audit log.</li>
+  <li>Provide safe impersonation only if later approved; beta default is no impersonation.</li>
+</ul>
+<p class="callout-hand">the person on the sidewalk sees a sticker. the system sees the whole promise.</p>
+
+<h2 id="the-data-the-system-must-keep-and-how">The data the system must keep — and how</h2>
+<p class="kicker">Data requirements</p>
+<p class="lede-p">Keep what the fourteen-table draft got right, then add the tables accountability demands.</p>
+<p>Retain the useful concepts in the existing fourteen-table draft while revising names and relationships after professional determinations. Required additions include:</p>
+<ul>
+  <li>Organization, membership, role, location staff, and account lifecycle tables.</li>
+  <li>Partner organization and partner–distributor relationship.</li>
+  <li>Consent/version records and data-subject request records.</li>
+  <li>Inventory custody events and batch print/QA evidence.</li>
+  <li>Idempotency keys, state-transition log, outbox/job records, and immutable audit events.</li>
+  <li>Formula/version, obligation, obligation line, approval, execution, reconciliation, and correction records using the approved public terminology.</li>
+  <li>Support cases, incidents, appeals, and restricted notes with separate access policies.</li>
+  <li>Claims/evidence register for public reports.</li>
+</ul>
+<div class="callout callout-info">
+  <b class="callout-title">Formats that prevent quiet errors</b>
+  <p>Financial amounts use <strong>integer cents plus ISO currency, never floating point</strong>. Timestamps use UTC and render in the user&rsquo;s locale. Each transactional row uses UUIDs, created/updated metadata where mutable, and immutable event IDs where append-only.</p>
+</div>
+
+<h2 id="ten-invariants-the-database-must-never-break">Ten invariants the database must never break</h2>
+<p class="kicker">Database invariants</p>
+<p class="lede-p">These are enforced in the database itself — not politely requested of the application.</p>
+<ol class="step-list">
+  <li data-n="01"><b>One code, one active sticker</b><p>A public sticker code maps to no more than one active sticker unit.</p></li>
+  <li data-n="02"><b>One sticker, one active claim</b><p>One sticker unit can have no more than one active claim.</p></li>
+  <li data-n="03"><b>One claim, one verified redemption</b><p>One claim can have no more than one effective verified redemption.</p></li>
+  <li data-n="04"><b>One redemption, one obligation set</b><p>One effective verified redemption can have exactly one obligation set for one formula version.</p></li>
+  <li data-n="05"><b>Replays return the original</b><p>Replays with the same idempotency key return the original result.</p></li>
+  <li data-n="06"><b>Caps never go negative</b><p>Offer caps are consumed atomically and never become negative.</p></li>
+  <li data-n="07"><b>Lines balance to the formula</b><p>Obligation lines balance to the approved formula total.</p></li>
+  <li data-n="08"><b>Executed never exceeds approved</b><p>Executed value cannot exceed approved value without a new approval.</p></li>
+  <li data-n="09"><b>Corrections preserve the original</b><p>Reversal/correction entries reference their source and preserve the original.</p></li>
+  <li data-n="10"><b>Cross-org access denied by default</b><p>Cross-organization access is denied by default and tested in PostgreSQL.</p></li>
+</ol>
+
+<h2 id="where-the-api-draws-its-lines">Where the API draws its lines</h2>
+<p class="kicker">API boundary</p>
+<p class="lede-p">Every request is validated on the server; every failure tells the operator enough and an attacker nothing.</p>
+<ul>
+  <li>Server-side route handlers or server actions validate authentication, authorization, schema, state, and idempotency.</li>
+  <li>Service-role/database-owner credentials never reach the browser.</li>
+  <li>Public endpoints are rate-limited, abuse-monitored, and return non-enumerable errors.</li>
+  <li>Webhooks, if later added, require signature verification, timestamp tolerance, deduplication, replay tooling, and dead-letter handling.</li>
+  <li>Error responses expose a correlation ID, not stack traces or protected details.</li>
+</ul>
+
+<h2 id="how-we-protect-people-and-their-data">How we protect people and their data</h2>
+<p class="kicker">Security and privacy</p>
+<p class="lede-p">Security here is a care practice — the people this serves have the most to lose from carelessness.</p>
+<ul>
+  <li>Organization-owned password manager and MFA for privileged accounts.</li>
+  <li>Separate local, preview/staging, and production environments and secrets.</li>
+  <li>Least-privilege RLS with positive and denial tests for every role/table combination.</li>
+  <li>Dependency pinning, automated vulnerability/dependency updates, secret scanning, and protected main branch.</li>
+  <li>Content Security Policy, secure cookies, CSRF protection where applicable, input/output encoding, upload restrictions, and rate limiting.</li>
+  <li>Written incident classification, notification, containment, evidence preservation, recovery, and postmortem process.</li>
+</ul>
+<div class="callout callout-heart">
+  <b class="callout-title">Anonymous first, always</b>
+  <p>Anonymous-first scanning; do not collect name, exact age, hobbies, precise location, or device fingerprint unless a documented purpose, consent/legal basis, retention, and access rule exists. <strong>No sale of personal data.</strong> Aggregate campaign/business measurement must not allow participant re-identification.</p>
+</div>
+
+<h2 id="everyone-gets-in-the-door">Everyone gets in the door</h2>
+<p class="kicker">Accessibility and content</p>
+<p class="lede-p">If a workflow is beta-critical, it works for keyboards, screen readers, low-end phones, and people helping in person.</p>
+<ul>
+  <li>Target <strong>WCAG 2.2 AA</strong> for all beta-critical workflows.</li>
+  <li>Keyboard navigation, visible focus, semantic landmarks, labels, error summaries, 200% zoom/reflow, sufficient contrast, reduced motion, captions/transcripts, and non-color status cues.</li>
+  <li>Plain-language English at beta; Austin-language needs are assessed with the operating partner before launch. Critical participant materials require partner-assisted explanation and printable versions.</li>
+  <li>Support current and previous major versions of Safari iOS, Chrome Android, Chrome desktop, Safari desktop, Edge, and Firefox at beta launch.</li>
+</ul>
+
+<h2 id="how-reliable-it-has-to-be">How reliable it has to be</h2>
+<p class="kicker">Reliability and operations</p>
+<p class="lede-p">Concrete numbers, so "it works" is a measurement instead of a mood.</p>
+<div class="stat-row">
+  <div class="stat"><b>99.5%</b><span>Monthly availability, beta-critical web/API routes</span></div>
+  <div class="stat"><b>&lt;1s</b><span>Transaction API p95 under expected pilot load</span></div>
+  <div class="stat"><b>&lt;3s</b><span>Public scan page usable content, low-end mobile/4G</span></div>
+  <div class="stat"><b>4 hrs</b><span>Recovery time objective, beta-critical service</span></div>
+</div>
+<ul>
+  <li>Production availability objective: 99.5% monthly for beta-critical web/API routes, excluding announced maintenance.</li>
+  <li>Transaction API target: p95 below 1 second under expected pilot load; public scan page usable content target below 3 seconds on a representative low-end mobile/4G profile.</li>
+  <li>Recovery point objective: 24 hours maximum for general content and 15 minutes for transactional/financial records where the selected platform supports it.</li>
+  <li>Recovery time objective: 4 hours for beta-critical service.</li>
+  <li>Daily automated backups plus pre-migration backup; quarterly restore test during beta preparation and before major schema changes.</li>
+  <li>Structured logs, correlation IDs, error monitoring, availability checks, database health, job/queue failure alerts, and cost alerts.</li>
+</ul>
+
+<h2 id="proof-before-people">Proof before people</h2>
+<p class="kicker">Test requirements</p>
+<p class="lede-p">Seven layers of testing stand between the code and a real participant.</p>
+<div class="card-grid">
+  <div class="mini-card"><h4><span class="mini-icon">🧪</span>Unit tests</h4><p>Formulas, permissions, state transitions, token/code utilities, and consent logic.</p></div>
+  <div class="mini-card"><h4><span class="mini-icon">🗄️</span>PostgreSQL tests</h4><p>RLS, invariants, atomic cap use, idempotency, ledger/obligation creation, reversals, and forbidden mutation.</p></div>
+  <div class="mini-card"><h4><span class="mini-icon">🔌</span>API integration tests</h4><p>Every success, replay, authorization denial, invalid transition, dispute, and failure path.</p></div>
+  <div class="mini-card"><h4><span class="mini-icon">🔁</span>End-to-end tests</h4><p>Recipient scan/claim, staff redemption, partner assignment, finance review, correction, report, and no-smartphone support workflow.</p></div>
+  <div class="mini-card"><h4><span class="mini-icon">📱</span>Physical QR test matrix</h4><p>Across print proofs, glare, distance, damage, older phones, and low light.</p></div>
+  <div class="mini-card"><h4><span class="mini-icon">♿</span>Accessibility checks</h4><p>Automated checks plus keyboard and screen-reader manual review.</p></div>
+  <div class="mini-card"><h4><span class="mini-icon">🛡️</span>Security review</h4><p>Security review and tabletop incident/recovery exercise before real participant launch.</p></div>
+</div>
+
+<h2 id="the-last-gate-before-real-people">The last gate before real people</h2>
+<p class="kicker">Technical release gate</p>
+<p class="lede-p">Production beta deployment happens only when every one of these is true.</p>
+<ul class="task-list">
+  <li><input type="checkbox" disabled> All critical tests green.</li>
+  <li><input type="checkbox" disabled> Zero unresolved critical/high security findings.</li>
+  <li><input type="checkbox" disabled> Verified backups and restore.</li>
+  <li><input type="checkbox" disabled> Privacy/accessibility review.</li>
+  <li><input type="checkbox" disabled> Operator runbooks.</li>
+  <li><input type="checkbox" disabled> On-call ownership.</li>
+  <li><input type="checkbox" disabled> Migration rollback.</li>
+  <li><input type="checkbox" disabled> Signed operational readiness from product, engineering, partner/safety, finance, and privacy/security owners.</li>
+</ul>
+<div class="band">
+  <p>Nothing on this list is ceremony. Each line is a promise kept before a single real sticker changes hands.</p>
+</div>
+
+    </article>
+    
+  <nav class="doc-pager" aria-label="Package navigation">
+    <a href="/playbook/docs/13-project-scope"><small>← Previous</small><b>13 · Project Scope</b></a>
+    <a class="next" href="/playbook/docs/15-recommended-tech-stack"><small>Next →</small><b>15 · Recommended Tech Stack</b></a>
+  </nav>
+    <footer class="doc-foot">
+      <span>Worth Keeping Concept-to-Production Planning Package</span>
+      <a href="/playbook/docs">Package index ↗</a>
+    </footer>
+  </main>
+  <script>
+const bar=document.getElementById("pb");
+const up=()=>{const r=document.documentElement,d=r.scrollHeight-r.clientHeight;
+bar.style.transform="scaleX("+(d>0?Math.min(1,r.scrollTop/d):0)+")"};
+document.addEventListener("scroll",up,{passive:true});up();
+</script>
+</body>
+</html>

@@ -1,0 +1,1718 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>G5 — Beta build — Worth Keeping Playbook</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%232D174C'/%3E%3Cpath d='M100 0v100H38z' fill='%23FF654A'/%3E%3Ctext x='50' y='68' text-anchor='middle' font-family='Arial Black,sans-serif' font-size='52' font-weight='900' fill='%23FFF3DF'%3EW%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Inter:wght@400;500;600;700;800&family=Caveat:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/playbook/doc-style.css?v=4">
+  <link rel="stylesheet" href="/playbook/playbook.css?v=1">
+</head>
+<body>
+  <div class="progress" aria-hidden="true"><span id="pb"></span></div>
+  <nav class="docbar" aria-label="Playbook navigation">
+    <a class="docbar-brand" href="/playbook">
+      <span class="docbar-mark" aria-hidden="true">W</span>
+      <span class="docbar-title">Worth&nbsp;<b>Keeping</b> · Playbook</span>
+    </a>
+    <div class="docbar-nav pb-nav"><a href="/playbook">Start here</a><a href="/playbook/g0">G0</a><a href="/playbook/g1">G1</a><a href="/playbook/g2">G2</a><a href="/playbook/g3">G3</a><a href="/playbook/g4">G4</a><a href="/playbook/g5" class="active">G5</a><a href="/playbook/g6">G6</a><a href="/playbook/g7">G7</a><a href="/playbook/g8">G8</a><a href="/playbook/roles">Roles</a>
+      <a class="docbar-index" href="/">Home ↗</a>
+    </div>
+  </nav>
+  <main class="doc pbk">
+    <header class="doc-head">
+      <div class="doc-chapter"><b>Gate G5</b><span>build the loop</span></div>
+      <h1>Beta build</h1>
+      <p class="pb-heart">Every workflow exists to keep a neighbor's trust from ever being a bug.</p>
+      <p class="doc-meta">181 tasks <span class="pill gated">Gated</span></p>
+    </header>
+    <section class="task-group">
+      <h3>Business sales <span class="task-count">1 task</span></h3>
+      <ul class="task-list-pb">
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Write the business policy set</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Create business qualification, allowed/prohibited offer, age/restriction, verification, dispute, refund, expiry, and offboarding policies.</p>
+          <p class="task-why">♥ Clear rules keep business offers safe and appropriate for the people redeeming them.</p>
+          <p class="task-done">Done when: All eight business policies are written and approved. · <a href="/playbook/docs/16-required-assets">source</a></p>
+        </div>
+      </li>
+      </ul>
+    </section>
+    <section class="task-group">
+      <h3>Engineering <span class="task-count">114 tasks</span></h3>
+      <ul class="task-list-pb">
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Build the anonymous-first recipient scan and explanation</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Implement the recipient scan flow that gives a clear, accessible explanation and live offer with no account required for the first scan.</p>
+          <p class="task-why">♥ A person's first moment with Worth Keeping should ask nothing of them and explain everything.</p>
+          <p class="task-done">Done when: A recipient can scan a sticker and see the explanation and live offer with no account and no profile collection. · <a href="/playbook/docs/13-project-scope">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Build the optional consented preference profile</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Implement optional, explicit, granular consent-based preferences for offer relevance, with no sale of personal data.</p>
+          <p class="task-why">♥ Relevance should be a gift the recipient chooses, never a profile built behind their back.</p>
+          <p class="task-done">Done when: A recipient can opt in with granular consent, see and revoke it, and the system records consent in the ledger; no personal data leaves the platform. · <a href="/playbook/docs/13-project-scope">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Build the sticker batch and lifecycle system</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Implement batch creation, secure code export, print QA support, activation, assignment, transfer, void, and recall states.</p>
+          <p class="task-why">♥ Full lifecycle control is what keeps every sticker accountable from print run to recipient.</p>
+          <p class="task-done">Done when: Every lifecycle state (create, export, activate, assign, transfer, void, recall) works in staging with audit records. · <a href="/playbook/docs/13-project-scope">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Implement QR anti-copy and duplicate-redemption controls</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Use random high-entropy codes, one-way storage where practical, state-machine enforcement, rate limits, and a review queue against copying and duplicate redemption.</p>
+          <p class="task-why">♥ Fraud against the system is ultimately theft from the participants it serves.</p>
+          <p class="task-done">Done when: Codes are high-entropy, state transitions are enforced, rate limits and the review queue are active, and duplicate-redemption attempts are demonstrably blocked in staging. · <a href="/playbook/docs/12-pre-design-review">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Build distributor onboarding, packs, activity, and support workflows</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Implement distributor onboarding/status, pack assignment, activity view, support access, and partner-assisted access paths.</p>
+          <p class="task-why">♥ Distributors give first — the system owes them clarity about everything that follows.</p>
+          <p class="task-done">Done when: A distributor can be onboarded, assigned a pack, view their verified activity, and reach support, including via a partner-assisted path. · <a href="/playbook/docs/13-project-scope">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Build business/sponsor workflows</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Implement business prospecting, agreement, location, staff access, offer templates, optional custom offer review, funding/status, and aggregate reporting.</p>
+          <p class="task-why">♥ Businesses fund the loop; they deserve a controlled, verifiable workflow instead of vague promises.</p>
+          <p class="task-done">Done when: A business can be set up through agreement, locations, staff access, and offers, and can view funding status and aggregate reports in staging. · <a href="/playbook/docs/13-project-scope">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Build offer reveal through redemption, dispute, and correction</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Implement offer reveal, claim, expiry, authenticated redemption, dispute, reversal, and correction — with no POS integration required.</p>
+          <p class="task-why">♥ The redemption moment is where dignity, commerce, and accountability all meet.</p>
+          <p class="task-done">Done when: The full offer lifecycle including authenticated redemption, dispute, reversal, and correction works in staging without POS integration. · <a href="/playbook/docs/13-project-scope">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Implement staff verification integrity controls</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Enforce authenticated staff, per-location authorization, idempotency keys, a correction/reversal workflow, and an audit log for redemption verification.</p>
+          <p class="task-why">♥ Honest business staff are protected by controls that make collusion and mistakes visible.</p>
+          <p class="task-done">Done when: Verification requires authenticated, location-authorized staff; repeat submissions are idempotent; corrections and every action appear in the audit log. · <a href="/playbook/docs/12-pre-design-review">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Build the idempotent ledger where only verified redemption creates obligations</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Implement ledger/obligation creation so that only a verified redemption can create a financial obligation, exactly once, under the approved formula.</p>
+          <p class="task-why">♥ One clean rule — verified redemption moves money — is the financial heart of participant trust.</p>
+          <p class="task-done">Done when: Staging tests prove no scan, impression, or duplicate verification can create an obligation, and each verified redemption creates exactly one auditable obligation. · <a href="/playbook/docs/13-project-scope">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Build the human-reviewed disbursement queue with dual approval</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Implement the value/disbursement queue with human review, dual approval, payout batching, execution evidence, failure/reissue handling, exception/appeal workflow, and reconciliation.</p>
+          <p class="task-why">♥ Every disbursement touches a real person's life; two sets of eyes and a paper trail honor that.</p>
+          <p class="task-done">Done when: No disbursement can execute without dual approval; execution evidence, failure/reissue, exceptions, and reconciliation all function in staging. · <a href="/playbook/docs/13-project-scope">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Build fraud/risk flags, case review, appeal, and closure</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Implement fraud and risk flagging with a case-review workflow, appeal path, and documented closure.</p>
+          <p class="task-why">♥ A fair appeal path means no participant or distributor is judged by an algorithm alone.</p>
+          <p class="task-done">Done when: A flagged event can be reviewed, appealed, and closed with a recorded outcome in staging. · <a href="/playbook/docs/13-project-scope">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Build operator, finance, partner, support, business, and auditor views</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Implement the six role-based views so each role sees exactly what it needs and nothing more.</p>
+          <p class="task-why">♥ Transparency for each role — without exposing anyone's data to the wrong eyes.</p>
+          <p class="task-done">Done when: All six role views exist in staging with role-appropriate data and least-privilege access. · <a href="/playbook/docs/13-project-scope">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Build aggregate impact reporting gated by claims approval</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Implement aggregate impact reporting whose outputs require claims approval before publication.</p>
+          <p class="task-why">♥ Impact numbers must earn belief — approved, aggregate, and never built from a person's story.</p>
+          <p class="task-done">Done when: Aggregate reports generate in staging and are blocked from publication until a claims approval is recorded. · <a href="/playbook/docs/13-project-scope">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Implement recipient role capabilities and prohibitions</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Build the recipient role: scan, view explanation/offer, optional consent/profile, claim, redeem, request support — with no access to distributor identity, sponsor financials, or operational records.</p>
+          <p class="task-why">♥ Recipients get full dignity and zero exposure to the machinery behind the gift.</p>
+          <p class="task-done">Done when: Role tests show every listed recipient capability works and every prohibition is denied. · <a href="/playbook/docs/14-technical-requirements">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Implement distributor role capabilities and prohibitions</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Build the distributor role: view assigned inventory, verified activity, expected/actual value status, training, help, and appeal — without the ability to activate inventory, verify their own redemption, or alter accounting.</p>
+          <p class="task-why">♥ Distributors see their own honest record without ever being put in a position to game it.</p>
+          <p class="task-done">Done when: Role tests show all distributor views work and self-verification, activation, and accounting writes are denied. · <a href="/playbook/docs/14-technical-requirements">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Implement partner staff role capabilities and prohibitions</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Build partner staff functions: onboard/support distributors, issue/return packs, record accommodations and incidents, initiate cases — with no unilateral approve-and-execute money movement.</p>
+          <p class="task-why">♥ Partner staff can care for distributors without ever holding sole control of money.</p>
+          <p class="task-done">Done when: Role tests show partner staff workflows function and money movement requires a second authorized actor. · <a href="/playbook/docs/14-technical-requirements">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Implement business staff role capabilities and prohibitions</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Build business staff functions: view location offers and verify/correct eligible redemptions — with no access to participant identity/value or other businesses' data.</p>
+          <p class="task-why">♥ Front-line staff can honor a redemption without ever seeing who the recipient is or what they're worth on paper.</p>
+          <p class="task-done">Done when: Role tests show verification/correction works and participant identity, value, and cross-business data are denied. · <a href="/playbook/docs/14-technical-requirements">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Implement business owner/sponsor role capabilities and prohibitions</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Build sponsor functions: manage approved locations, offers, funding inputs, and view aggregate reports — with no access to recipient profiles or raw distributor records.</p>
+          <p class="task-why">♥ Sponsors see their impact in aggregate without turning participants into surveilled data points.</p>
+          <p class="task-done">Done when: Role tests show sponsor management and aggregate reporting work and all individual-level access is denied. · <a href="/playbook/docs/14-technical-requirements">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Implement support role capabilities and prohibitions</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Build support functions: view minimum case context, communicate, escalate, document resolution — with no ability to alter immutable events or financial records.</p>
+          <p class="task-why">♥ Support can help people without becoming a back door into the ledger.</p>
+          <p class="task-done">Done when: Role tests show support case workflows function and immutable/financial writes are denied. · <a href="/playbook/docs/14-technical-requirements">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Implement finance reviewer role capabilities and prohibitions</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Build finance reviewer functions: review obligations, approve/reject batches, record execution and reconciliation — with a rule that the reviewer cannot originate the verified redemption they approve without second review.</p>
+          <p class="task-why">♥ Separation of duties keeps every dollar of participant value above reproach.</p>
+          <p class="task-done">Done when: Role tests show review/approval/reconciliation works and originator-approves-own-redemption is blocked. · <a href="/playbook/docs/14-technical-requirements">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Implement operator/admin role capabilities and prohibitions</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Build operator functions: configure approved entities, batches, offers, roles, queues, reports — with no ability to bypass audit, idempotency, or dual-control rules.</p>
+          <p class="task-why">♥ Even the people running the system stay inside its accountability rails.</p>
+          <p class="task-done">Done when: Role tests show operator configuration works and audit/idempotency/dual-control bypass attempts fail. · <a href="/playbook/docs/14-technical-requirements">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Implement auditor read-only role</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Build an auditor role that can view approved immutable events, reconciliations, access history, and reports with zero write access.</p>
+          <p class="task-why">♥ Anyone checking the system's honesty can see everything and change nothing.</p>
+          <p class="task-done">Done when: Role tests show auditor reads succeed and every write attempt is denied. · <a href="/playbook/docs/14-technical-requirements">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Build account-free recipient first scan</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Ensure a recipient's first sticker scan requires no account creation.</p>
+          <p class="task-why">♥ The moment someone is handed a sticker should never start with a signup wall.</p>
+          <p class="task-done">Done when: E2E test completes scan-to-offer-view with no account and no required personal data. · <a href="/playbook/docs/14-technical-requirements">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Implement the sticker inventory state machine</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Build the draft code → minted → print_exported → print_verified → activated → packed → assigned → passed → claimed → redeemed lifecycle plus exception states (quarantined, void, lost, stolen, damaged, recalled, expired), recording actor, timestamp, reason, prior state, and correlation ID on every terminal/exception transition. Printed codes stay unusable until batch activation.</p>
+          <p class="task-why">♥ Every physical sticker is accounted for from mint to redemption, so nothing valuable leaks or gets lost silently.</p>
+          <p class="task-done">Done when: State-transition tests pass for every legal transition, every illegal transition is rejected, and exception transitions log all five required fields. · <a href="/playbook/docs/14-technical-requirements">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Implement the offer lifecycle state machine</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Build the draft → pending_approval → active → paused → retired lifecycle for offers.</p>
+          <p class="task-why">♥ Offers only reach recipients after deliberate approval, and can be paused the moment something is wrong.</p>
+          <p class="task-done">Done when: Tests confirm every offer transition follows the approved lifecycle and no unapproved offer is claimable. · <a href="/playbook/docs/14-technical-requirements">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Implement the claim state machine with atomic creation controls</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Build revealed → claimed → redemption_pending → redeemed with expired, cancelled, disputed, and reversed as controlled outcomes; claim creation atomically enforces availability, active dates, recipient/device abuse controls, and per-offer caps.</p>
+          <p class="task-why">♥ Recipients can trust that a revealed offer is real, and sponsors can trust caps are never oversold.</p>
+          <p class="task-done">Done when: Concurrency tests show caps never oversubscribe and all controlled outcome transitions behave per spec. · <a href="/playbook/docs/14-technical-requirements">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Implement the redemption and participant-value state machine</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Build initiated → verified → obligation_created → under_review → approved → execution_pending → executed → reconciled with exceptions (verification_rejected, disputed, reversed, execution_failed, reissued, cancelled_by_authority). One verified redemption produces exactly one obligation set under the versioned approved formula; corrections use compensating/reversal entries and financial history is never overwritten.</p>
+          <p class="task-why">♥ The money a distributor earned is tracked with the same rigor as a bank ledger — earned once, paid once, never erased.</p>
+          <p class="task-done">Done when: Tests confirm the full lifecycle, single-obligation-set rule, and that corrections append rather than overwrite. · <a href="/playbook/docs/14-technical-requirements">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Resolve high-entropy public sticker codes without exposing internal IDs</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Build public code resolution so sticker URLs use high-entropy codes and never leak internal sequential identifiers.</p>
+          <p class="task-why">♥ No one can enumerate stickers, guess codes, or map the inventory from the outside.</p>
+          <p class="task-done">Done when: Code-utility tests pass and no public response contains a sequential internal ID. · <a href="/playbook/docs/14-technical-requirements">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Display full offer details before claim confirmation</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Show offer value, business, location, expiry, restrictions, accessibility info, and redemption instructions before the recipient confirms a claim.</p>
+          <p class="task-why">♥ Nobody claims an offer they can't actually use — informed choice is dignity.</p>
+          <p class="task-done">Done when: E2E test verifies all seven detail fields render before the claim confirmation action. · <a href="/playbook/docs/14-technical-requirements">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Build a low-bandwidth recipient route</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Provide a recipient route with compressed media and no required animation for constrained devices and connections.</p>
+          <p class="task-why">♥ A sticker works for someone on an old phone with one bar of signal, not just for people with flagships.</p>
+          <p class="task-done">Done when: The low-bandwidth route completes scan-to-claim on a throttled low-end device profile within targets. · <a href="/playbook/docs/14-technical-requirements">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Build granular consent with skip, withdrawal, export, and deletion</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Implement per-purpose consent for personalization and marketing, allowing skip at any point, later withdrawal, data export, and deletion where applicable.</p>
+          <p class="task-why">♥ Recipients own their data and their choices, always and reversibly.</p>
+          <p class="task-done">Done when: Consent-logic unit tests pass and each of skip, withdraw, export, delete works end-to-end. · <a href="/playbook/docs/14-technical-requirements">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Provide approved offer templates and a custom-offer submission path</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Build a library of approved offer templates plus a submission path for custom offers requiring approval.</p>
+          <p class="task-why">♥ Businesses can join quickly with safe defaults while unusual offers still get human review.</p>
+          <p class="task-done">Done when: A business can create an offer from a template and submit a custom offer that lands in the approval queue. · <a href="/playbook/docs/14-technical-requirements">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Require authenticated staff or controlled short-lived location sessions for redemption verification</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Build redemption verification so only authenticated location staff or a controlled short-lived location session can verify, with no shared plaintext/PIN-equivalent secret stored or exposed in sponsor-readable offer data.</p>
+          <p class="task-why">♥ A redemption is only ever verified by someone accountable, and no leaked PIN can fake one.</p>
+          <p class="task-done">Done when: Verification fails without an authenticated staff account or valid location session, and no plaintext shared secret exists in sponsor-readable data. · <a href="/playbook/docs/14-technical-requirements">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Accept an idempotency key on every verification attempt</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Require and honor an idempotency key for all redemption verification requests so retries return the original result.</p>
+          <p class="task-why">♥ A flaky connection at the counter never double-charges a sponsor or double-credits a distributor.</p>
+          <p class="task-done">Done when: Replay tests with the same key return the original result without creating duplicate records. · <a href="/playbook/docs/14-technical-requirements">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Record full verification evidence with correction lineage</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Record location, staff account, claim, timestamp, result, and correction lineage for every verification attempt.</p>
+          <p class="task-why">♥ Every verified moment of value has a complete, correctable, never-erased paper trail.</p>
+          <p class="task-done">Done when: Every verification row contains all six fields and corrections link to their source record in tests. · <a href="/playbook/docs/14-technical-requirements">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Build the offline verification exception procedure</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Provide an offline exception procedure where offline verification events remain pending until authenticated synchronization and review.</p>
+          <p class="task-why">♥ A dead Wi-Fi router doesn't turn a recipient away, and it doesn't create unreviewed money either.</p>
+          <p class="task-done">Done when: An offline-recorded event stays pending, then resolves only after authenticated sync and reviewer action in tests. · <a href="/playbook/docs/14-technical-requirements">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Record distributor approval, training, consent, accommodations, and support preference</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Build distributor records covering approval, training completion, consent version, accommodations, status, assigned partner, and support preference.</p>
+          <p class="task-why">♥ The platform remembers how each distributor needs to be supported, not just what they sold.</p>
+          <p class="task-done">Done when: All seven distributor record fields persist, update, and appear in partner workflows in tests. · <a href="/playbook/docs/14-technical-requirements">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Build counted custody events for pack transfers</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Transfer sticker packs through counted custody events requiring sender and receiver acknowledgement.</p>
+          <p class="task-why">♥ Inventory moves hand-to-hand with both people vouching for the count, so no one gets blamed for stickers they never received.</p>
+          <p class="task-done">Done when: A pack transfer requires both acknowledgements and produces an immutable custody event in tests. · <a href="/playbook/docs/14-technical-requirements">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Version every formula, cap, fee rule, sponsor restriction, and effective date</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Build versioned records for participant-value formulas, caps, fee/overhead rules, sponsor restrictions, and effective dates.</p>
+          <p class="task-why">♥ When rules change, past obligations stay computed under the rules that were in force — no retroactive surprises.</p>
+          <p class="task-done">Done when: Tests show obligations reference a specific formula version and historical calculations are reproducible. · <a href="/playbook/docs/14-technical-requirements">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Create obligations transactionally with verified redemptions</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Create obligations in the same database transaction as the verified redemption, or through a transactionally safe outbox worker with idempotent replay.</p>
+          <p class="task-why">♥ Value owed to a distributor can never silently fail to be recorded.</p>
+          <p class="task-done">Done when: Failure-injection tests show no verified redemption ever exists without its obligation set, and outbox replays are idempotent. · <a href="/playbook/docs/14-technical-requirements">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Generate participant statements and aggregate sponsor/impact reports</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Generate participant statements and aggregate sponsor/impact reports that disclose no protected information.</p>
+          <p class="task-why">♥ Distributors get proof of what they earned; sponsors see impact; nobody's privacy is spent to do it.</p>
+          <p class="task-done">Done when: Generated statements and reports pass a review confirming completeness and zero protected-information disclosure. · <a href="/playbook/docs/14-technical-requirements">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Build operator queues for all pending work types</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Provide operator queues for pending offers, print batches, assignments, redemption exceptions, fraud flags, disputes, participant-value reviews, failed executions, incidents, consent/deletion requests, and claims approval.</p>
+          <p class="task-why">♥ Nothing that needs a human decision can silently pile up unseen.</p>
+          <p class="task-done">Done when: All eleven queue types exist, populate from real state, and support operator action in tests. · <a href="/playbook/docs/14-technical-requirements">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Require a reason and append-only audit entry for every administrative action</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Enforce that every administrative action captures a reason and lands in an append-only audit log.</p>
+          <p class="task-why">♥ Power in the system always leaves an honest, permanent trace.</p>
+          <p class="task-done">Done when: Tests show admin actions without a reason are rejected and audit entries cannot be modified or deleted. · <a href="/playbook/docs/14-technical-requirements">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Add organization, membership, role, location staff, and account lifecycle tables</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Create the tables that model organizations, memberships, roles, location staff, and account lifecycle states.</p>
+          <p class="task-why">♥ Access control and accountability start with knowing exactly who belongs to what.</p>
+          <p class="task-done">Done when: Migrations for all five table groups apply cleanly with RLS and lifecycle tests passing. · <a href="/playbook/docs/14-technical-requirements">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Add partner organization and partner–distributor relationship tables</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Create tables modeling partner organizations and their relationships to distributors.</p>
+          <p class="task-why">♥ Every distributor's support network is a first-class record, not an afterthought.</p>
+          <p class="task-done">Done when: Partner and relationship migrations apply and partner-scoped queries pass RLS tests. · <a href="/playbook/docs/14-technical-requirements">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Add consent/version and data-subject request tables</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Create consent records with versioning and data-subject request records.</p>
+          <p class="task-why">♥ Every yes, no, and 'delete my data' is recorded and honorable.</p>
+          <p class="task-done">Done when: Consent versions and DSR records persist correctly and drive the consent/deletion queues in tests. · <a href="/playbook/docs/14-technical-requirements">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Add inventory custody event and batch print/QA evidence tables</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Create tables for inventory custody events and batch print/QA evidence.</p>
+          <p class="task-why">♥ Physical sticker history — who held what, and proof it printed correctly — lives in the database, not in memory.</p>
+          <p class="task-done">Done when: Custody and print/QA evidence migrations apply and custody events are append-only in tests. · <a href="/playbook/docs/14-technical-requirements">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Add idempotency key, state-transition log, outbox/job, and immutable audit event tables</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Create the reliability backbone tables: idempotency keys, state-transition log, outbox/job records, and immutable audit events.</p>
+          <p class="task-why">♥ Retries, crashes, and reviews all resolve safely because the system remembers everything it did.</p>
+          <p class="task-done">Done when: All four table groups exist with tests proving idempotent replay and audit immutability. · <a href="/playbook/docs/14-technical-requirements">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Add formula, obligation, approval, execution, reconciliation, and correction tables</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Create formula/version, obligation, obligation line, approval, execution, reconciliation, and correction records using the approved public terminology.</p>
+          <p class="task-why">♥ Participant value has a complete financial paper trail from formula to reconciled payment.</p>
+          <p class="task-done">Done when: All financial record migrations apply and obligation lines balance to formula totals in tests. · <a href="/playbook/docs/14-technical-requirements">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Add support case, incident, appeal, and restricted-note tables with separate access policies</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Create support cases, incidents, appeals, and restricted notes with access policies distinct from operational data.</p>
+          <p class="task-why">♥ Sensitive human situations are stored behind their own locked door.</p>
+          <p class="task-done">Done when: Migrations apply and RLS tests confirm restricted notes are invisible outside their access policy. · <a href="/playbook/docs/14-technical-requirements">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Add the claims/evidence register for public reports</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Create a claims/evidence register backing every public claim with recorded evidence.</p>
+          <p class="task-why">♥ Everything Worth Keeping says publicly can be traced to proof.</p>
+          <p class="task-done">Done when: The register exists and public report generation reads from it in tests. · <a href="/playbook/docs/14-technical-requirements">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Enforce money, timestamp, and identifier conventions</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Store financial amounts as integer cents plus ISO currency (never floating point), timestamps in UTC rendered in user locale, UUIDs on transactional rows, created/updated metadata on mutable rows, and immutable event IDs on append-only rows.</p>
+          <p class="task-why">♥ Precision conventions prevent the rounding errors and timezone bugs that quietly cheat people.</p>
+          <p class="task-done">Done when: Schema lint/tests confirm no float money columns, UTC timestamps, and required ID/metadata columns everywhere. · <a href="/playbook/docs/14-technical-requirements">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Enforce and test the ten database invariants</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Implement the ten invariants: one active sticker per code, one active claim per unit, one effective verified redemption per claim, exactly one obligation set per verified redemption per formula version, idempotent replays, atomic non-negative caps, balanced obligation lines, executed ≤ approved value, corrections referencing sources, and default-deny cross-organization access — all tested in PostgreSQL.</p>
+          <p class="task-why">♥ These ten rules are the mathematical guarantee that nobody can be double-paid, shorted, or spied on.</p>
+          <p class="task-done">Done when: PostgreSQL tests exist and pass for each of the ten invariants, including violation attempts. · <a href="/playbook/docs/14-technical-requirements">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Validate auth, authorization, schema, state, and idempotency in server-side handlers</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Ensure all route handlers/server actions validate authentication, authorization, schema, state, and idempotency server-side, never trusting the browser.</p>
+          <p class="task-why">♥ No clever client can talk the platform into a transition it hasn't earned.</p>
+          <p class="task-done">Done when: Integration tests confirm all five validation layers reject invalid requests on every mutating endpoint. · <a href="/playbook/docs/14-technical-requirements">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Write positive and denial RLS tests for every role/table combination</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Implement least-privilege row-level security with an explicit positive test and denial test for every role/table pair.</p>
+          <p class="task-why">♥ Access rules are proven, not assumed, for every person and every record.</p>
+          <p class="task-done">Done when: The RLS test suite covers every role/table combination with both allow and deny assertions, all passing. · <a href="/playbook/docs/14-technical-requirements">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Meet transaction and scan-page performance targets</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Achieve p95 below 1 second for transaction APIs under expected pilot load and usable public scan-page content below 3 seconds on a representative low-end mobile/4G profile.</p>
+          <p class="task-why">♥ Someone standing on a sidewalk with a stranger's gift shouldn't watch a spinner.</p>
+          <p class="task-done">Done when: Load tests show p95 &lt; 1s on transaction APIs and the scan page hits &lt; 3s on the low-end 4G profile. · <a href="/playbook/docs/14-technical-requirements">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Set up structured logs, correlation IDs, and alerting</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Implement structured logs, correlation IDs, error monitoring, availability checks, database health monitoring, job/queue failure alerts, and cost alerts.</p>
+          <p class="task-why">♥ Problems announce themselves to the team before participants have to.</p>
+          <p class="task-done">Done when: Each of the seven observability capabilities is live and a test alert reaches the on-call channel. · <a href="/playbook/docs/14-technical-requirements">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Configure TypeScript strict mode</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Set up TypeScript with strict mode across the application.</p>
+          <p class="task-why">♥ Contract drift is caught by the compiler before it becomes a bug that affects someone's value.</p>
+          <p class="task-done">Done when: tsconfig has strict mode enabled and the build passes with no strict-mode suppressions. · <a href="/playbook/docs/15-recommended-tech-stack">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Pin Next.js 16 App Router and React 19 to exact tested versions</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Adopt Next.js 16 App Router with React 19 and pin exact tested versions in the lockfile/manifest.</p>
+          <p class="task-why">♥ The platform never breaks because a dependency updated itself overnight.</p>
+          <p class="task-done">Done when: Lockfile and manifest show exact pinned versions matching the verified baseline. · <a href="/playbook/docs/15-recommended-tech-stack">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Set up styling with shared design tokens</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Use existing CSS/Tailwind 4 only where it reduces repetition, with shared design tokens and no second component system.</p>
+          <p class="task-why">♥ One coherent visual language keeps the brand warm and consistent everywhere a participant looks.</p>
+          <p class="task-done">Done when: Shared design tokens exist and are consumed by application styles with no duplicate component system. · <a href="/playbook/docs/15-recommended-tech-stack">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Add Zod validation at all server and public input boundaries</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Apply Zod schemas to validate every server and public input boundary at runtime.</p>
+          <p class="task-why">♥ Malformed or malicious input is stopped at the door with typed, testable rules.</p>
+          <p class="task-done">Done when: Every server/public input boundary has a Zod schema and invalid-input tests pass. · <a href="/playbook/docs/15-recommended-tech-stack">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Set up Supabase Auth with MFA for privileged roles and passwordless options</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Configure Supabase Auth integrated with RLS, MFA for privileged roles, and passwordless links/OTP where appropriate.</p>
+          <p class="task-why">♥ Login is easy for participants and hardened for the people holding power.</p>
+          <p class="task-done">Done when: Auth works end-to-end with RLS, privileged MFA enforced, and passwordless flow tested. · <a href="/playbook/docs/15-recommended-tech-stack">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Set up Supabase Storage for evidence uploads with scheduled bucket export</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Use Supabase Storage for approved evidence/artifact uploads with access policies near application data, public assets in app/CDN, and a scheduled bucket export.</p>
+          <p class="task-why">♥ Evidence files inherit the same access discipline as the data they support.</p>
+          <p class="task-done">Done when: Evidence uploads work under access policies and the scheduled bucket export runs successfully. · <a href="/playbook/docs/15-recommended-tech-stack">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Build the GitHub Actions CI pipeline gating Vercel deploys</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Set up GitHub Actions running lint, typecheck, unit, SQL, build, and E2E smoke, with Vercel deployment only after checks pass.</p>
+          <p class="task-why">♥ Nothing reaches participants without passing every automated gate, with an auditable history.</p>
+          <p class="task-done">Done when: CI runs all six check stages on every PR and deploys are blocked on failure. · <a href="/playbook/docs/15-recommended-tech-stack">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Set up Vercel platform monitoring plus Sentry with data scrubbing</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Enable Vercel logs/analytics for platform health and Sentry for errors/traces with data scrubbing, keeping structured logs exportable and Sentry removable without product outage.</p>
+          <p class="task-why">♥ The team can diagnose production pain without error tools hoovering up participant data.</p>
+          <p class="task-done">Done when: Sentry captures a test error with scrubbing verified and Vercel analytics report platform health. · <a href="/playbook/docs/15-recommended-tech-stack">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Build first-party, purpose-limited product analytics</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Implement first-party event tables and aggregate reports with CSV/SQL aggregate export, instead of third-party behavioral analytics.</p>
+          <p class="task-why">♥ The project learns what it needs without exporting sensitive behavior to anyone else's ad machine.</p>
+          <p class="task-done">Done when: Purpose-limited event tables populate, aggregate reports generate, and no third-party behavioral tracker is present. · <a href="/playbook/docs/15-recommended-tech-stack">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Set up transactional email after account/processor approval</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Configure Resend or an equivalent transactional-only email provider behind a provider adapter with exportable templates, only after account/processor approval.</p>
+          <p class="task-why">♥ Auth links, business notices, and support messages actually arrive — with an exit if the provider changes.</p>
+          <p class="task-done">Done when: Transactional emails send from the approved account through the adapter and templates are exportable. · <a href="/playbook/docs/15-recommended-tech-stack">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Replace every `latest` dependency with an exact verified version</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Pin every dependency currently on `latest` to an exact version matching the verified lockfile baseline.</p>
+          <p class="task-why">♥ The platform's behavior is reproducible, not at the mercy of upstream publish schedules.</p>
+          <p class="task-done">Done when: No manifest contains `latest` and installed versions match the verified baseline. · <a href="/playbook/docs/15-recommended-tech-stack">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Standardize on Node.js 22 LTS for development and CI</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Use Node.js 22 LTS everywhere until a tested migration to a newer version is approved.</p>
+          <p class="task-why">♥ Everyone builds and tests on the same foundation the production platform runs on.</p>
+          <p class="task-done">Done when: Local tooling, CI, and deployment all declare and use Node 22 LTS. · <a href="/playbook/docs/15-recommended-tech-stack">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Commit one lockfile per application and protect it from casual regeneration</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Maintain exactly one committed lockfile per application and establish the rule that it is not regenerated casually.</p>
+          <p class="task-why">♥ Dependency truth is versioned and deliberate, never accidental.</p>
+          <p class="task-done">Done when: One lockfile per application is committed and the regeneration rule is documented in contributor docs. · <a href="/playbook/docs/15-recommended-tech-stack">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Establish the security-patch and scheduled-upgrade process</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Apply security patches through pull requests with automated tests, and schedule framework/minor upgrades rather than allowing implicit drift.</p>
+          <p class="task-why">♥ Staying secure and current is a routine, not an emergency.</p>
+          <p class="task-done">Done when: The patch/upgrade process is documented and the first patch cycle has run through a tested PR. · <a href="/playbook/docs/15-recommended-tech-stack">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Record production database extensions and CLI versions in repository docs</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Document the production database extensions and CLI tool versions in the repository.</p>
+          <p class="task-why">♥ Anyone rebuilding or debugging the environment knows exactly what it runs on.</p>
+          <p class="task-done">Done when: Repository documentation lists all production extensions and CLI versions in use. · <a href="/playbook/docs/15-recommended-tech-stack">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Encode design tokens and component styles in the application</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Translate the approved palette and typography into application design tokens and component styles.</p>
+          <p class="task-why">♥ Tokens make accessibility and brand consistency automatic instead of a per-screen fight.</p>
+          <p class="task-done">Done when: Visual regression and contrast checks pass on the tokenized components. · <a href="/playbook/docs/16-required-assets">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Build public scan and claim screens</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Implement public scan, invalid/void/already-claimed/rate-limited, reveal, claim, expiry, redemption, correction, and help screens.</p>
+          <p class="task-why">♥ The scan moment is the recipient's whole experience — every state must land with clarity and dignity.</p>
+          <p class="task-done">Done when: All listed screen states render and pass UX and accessibility review. · <a href="/playbook/docs/16-required-assets">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Build distributor onboarding and support screens</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Implement distributor onboarding, training, consent, inventory, activity/value statement, support, complaint, appeal, and exit screens plus printable equivalents.</p>
+          <p class="task-why">♥ Distributors carry the program in the field — they need tools that respect their time and their exit rights.</p>
+          <p class="task-done">Done when: All distributor screens and printable equivalents exist and pass review. · <a href="/playbook/docs/16-required-assets">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Build the partner dashboard and workflows</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Implement the partner dashboard, participant/pack workflows, restricted incident/support case views, and operating reports.</p>
+          <p class="task-why">♥ Community partners can only safeguard participants if they can see their own operation clearly — and nothing more.</p>
+          <p class="task-done">Done when: Partner dashboard, workflows, restricted views, and reports pass access-control review. · <a href="/playbook/docs/16-required-assets">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Build business onboarding and redemption workflows</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Implement business onboarding, approved offer templates, custom offer review, location/staff access, redemption, correction/dispute, funding/status, and reports.</p>
+          <p class="task-why">♥ Local businesses join because it is easy and safe to say yes — the workflow has to earn that.</p>
+          <p class="task-done">Done when: All business workflows function end to end and pass review. · <a href="/playbook/docs/16-required-assets">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Build operator and back-office dashboards</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Implement operator, finance, support, claims, fraud, inventory, audit, reconciliation, incident, and release dashboards.</p>
+          <p class="task-why">♥ Operators can only keep promises they can see — dashboards are the program's conscience.</p>
+          <p class="task-done">Done when: All ten operational dashboards exist with correct role-restricted access. · <a href="/playbook/docs/16-required-assets">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Set up Sentry with data scrubbing and alerts</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Configure Sentry on the free tier with data scrubbing, environment separation, alerts, and named owners; move to paid only if volume/retention/support requires.</p>
+          <p class="task-why">♥ Error visibility without leaking personal data is how the team fixes problems responsibly.</p>
+          <p class="task-done">Done when: Sentry is live with scrubbing verified, environments separated, alerts configured, and owners assigned. · <a href="/playbook/docs/17-platforms-subscriptions-services">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Set up the transactional email provider</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Stand up a development sandbox, then the approved paid tier by volume, with SPF/DKIM/DMARC, suppression handling, and templates behind a provider adapter.</p>
+          <p class="task-why">♥ Auth and operational notices must arrive reliably or people get locked out of their own claims.</p>
+          <p class="task-done">Done when: Domain authentication passes, suppression handling works, templates exist, and the provider sits behind an adapter. · <a href="/playbook/docs/17-platforms-subscriptions-services">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Decide Sentry paid tier when limits are exceeded</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Upgrade only when free limits or required retention/team features are exceeded, budgeting events, retention, and seats with a data-scrubbing review and budget alert.</p>
+          <p class="task-why">♥ Observability spend should follow real need, and every upgrade re-checks that no personal data leaks into events.</p>
+          <p class="task-done">Done when: The tier decision is recorded with a completed data-scrubbing review and an active budget alert. · <a href="/playbook/docs/17-platforms-subscriptions-services">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Activate paid transactional email before production notifications</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Move to the paid tier before production authentication/notifications, budgeting message volume (dedicated IP only if justified) with bounce/complaint thresholds.</p>
+          <p class="task-why">♥ Delivery thresholds catch reputation problems before recipients stop getting critical messages.</p>
+          <p class="task-done">Done when: Paid tier is active with bounce/complaint thresholds monitored. · <a href="/playbook/docs/17-platforms-subscriptions-services">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Enforce committed lockfile and npm ci in CI</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Use the committed package-lock.json and run npm ci (never npm install) in CI, verifying npm ci and npm run build pass.</p>
+          <p class="task-why">♥ Reproducible installs mean the build that passed review is the build that ships.</p>
+          <p class="task-done">Done when: CI runs npm ci against the committed lockfile and npm run build passes. · <a href="/playbook/docs/19-required-tools-and-skills">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Install Supabase CLI as an exact-version project dev dependency</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Run npm install --save-dev --save-exact supabase@2.109.1 (2026-07-18 reviewed baseline) and invoke via npx supabase; install Docker Desktop first if local services are used.</p>
+          <p class="task-why">♥ A pinned, project-local CLI keeps database tooling identical for everyone touching recipient data.</p>
+          <p class="task-done">Done when: npx supabase --version reports the pinned version from the project lockfile. · <a href="/playbook/docs/19-required-tools-and-skills">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Install Docker Desktop for isolated local database tests</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Download the Apple Silicon DMG, drag Docker to Applications, open it, accept required permissions, and keep Kubernetes disabled unless separately needed (conditional but recommended).</p>
+          <p class="task-why">♥ Isolated local database tests let the team break things safely instead of near real data.</p>
+          <p class="task-done">Done when: docker version succeeds and docker run --rm hello-world completes. · <a href="/playbook/docs/19-required-tools-and-skills">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Install Vercel CLI and link development, staging, and production projects</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Run npm install --save-dev --save-exact vercel@56.3.2 (2026-07-18 reviewed baseline), authenticate with the organization account, and run npx vercel link separately for development, staging, and production projects.</p>
+          <p class="task-why">♥ Separate linked environments keep experiments from ever touching what real users see.</p>
+          <p class="task-done">Done when: npx vercel --version reports the pinned version and npx vercel project ls shows the three linked projects under the organization. · <a href="/playbook/docs/19-required-tools-and-skills">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Pin TypeScript/ESLint versions and add a typecheck script</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Replace latest ranges with exact tested versions, run npm ci, and add a typecheck script using tsc --noEmit.</p>
+          <p class="task-why">♥ Strict, pinned type tooling catches mistakes before they can reach a recipient's screen.</p>
+          <p class="task-done">Done when: npm run lint and npm run typecheck both pass with exact versions in the manifest and lockfile. · <a href="/playbook/docs/19-required-tools-and-skills">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Install Vitest and Testing Library at exact versions</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Run npm install --save-dev --save-exact vitest@4.1.10 jsdom@29.1.1 @testing-library/react@16.3.2 @testing-library/jest-dom@6.9.1 @testing-library/user-event@14.6.1.</p>
+          <p class="task-why">♥ A working unit-test stack is the everyday guardrail for the code people will rely on.</p>
+          <p class="task-done">Done when: npx vitest run executes the test suite successfully with the pinned packages in the lockfile. · <a href="/playbook/docs/19-required-tools-and-skills">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Install Playwright with Chromium and WebKit browsers</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Run npm install --save-dev --save-exact @playwright/test@1.61.1, then npx playwright install chromium webkit.</p>
+          <p class="task-why">♥ End-to-end tests in real browser engines prove the flows recipients and supporters will actually walk.</p>
+          <p class="task-done">Done when: npx playwright test --list succeeds with the pinned package and installed browsers. · <a href="/playbook/docs/19-required-tools-and-skills">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Install zod and create shared server-boundary validation schemas</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Run npm install --save-exact zod@4.4.3 and create shared schemas that validate data at every server boundary.</p>
+          <p class="task-why">♥ Validating every input at the boundary protects recipient records from bad or malicious data.</p>
+          <p class="task-done">Done when: npm ls zod shows the pinned version and validation unit tests pass. · <a href="/playbook/docs/19-required-tools-and-skills">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Document jq and ripgrep use in verification scripts</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Document how the installed jq and ripgrep utilities are used in the project's verification scripts.</p>
+          <p class="task-why">♥ Written verification steps let any teammate check the system, not just the person who built it.</p>
+          <p class="task-done">Done when: Verification scripts referencing jq and ripgrep are documented and both tools report versions (jq --version, rg --version). · <a href="/playbook/docs/19-required-tools-and-skills">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Create local, preview, staging, and production environments with synthetic data outside production</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Stand up local/preview/staging/production environments and ensure only synthetic data exists outside production.</p>
+          <p class="task-why">♥ Real people's data lives in exactly one place, and every experiment happens somewhere else.</p>
+          <p class="task-done">Done when: All four environments exist and a check confirms non-production environments contain only synthetic data. · <a href="/playbook/docs/19-required-tools-and-skills">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Evidence full-stack TypeScript/Next.js capability against the pinned baseline</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Demonstrate build, test, and review capability against the pinned project baseline before the build phase proceeds.</p>
+          <p class="task-why">♥ The people funding the build deserve proof the team can actually ship on this stack.</p>
+          <p class="task-done">Done when: A demonstrated build/test/review exercise against the pinned baseline is recorded by a reviewer. · <a href="/playbook/docs/19-required-tools-and-skills">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Evidence PostgreSQL/Supabase/RLS capability with migration and restore exercises</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Perform a migration, RLS denial and positive tests, and a restore and rollback exercise before the build proceeds.</p>
+          <p class="task-why">♥ Row-level security drills are how we prove one recipient can never see another's story.</p>
+          <p class="task-done">Done when: Migration, RLS denial/positive tests, and the restore/rollback exercise are performed and recorded. · <a href="/playbook/docs/19-required-tools-and-skills">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Evidence financial-ledger and state-machine engineering before the transaction build</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Review and pass idempotency, invariant, reversal, concurrency, and reconciliation tests for the ledger design.</p>
+          <p class="task-why">♥ Money attached to vulnerable people must be impossible to double-spend, lose, or silently corrupt.</p>
+          <p class="task-done">Done when: Idempotency, invariants, reversal, concurrency, and reconciliation test reviews are all passed and recorded. · <a href="/playbook/docs/19-required-tools-and-skills">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Ship revised migrations for the full transaction domain</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Deliver revised database migrations covering organizations, roles, consent, custody, audit, idempotency, obligation/execution/correction, support/incident, and claims evidence.</p>
+          <p class="task-why">♥ The schema is where consent, custody, and every dollar owed get made real and auditable.</p>
+          <p class="task-done">Done when: Migrations for all listed domains are merged and applied cleanly in staging. · <a href="/playbook/docs/20-implementation-roadmap">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Write RLS and database invariant tests</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Build automated tests for row-level security policies and database invariants.</p>
+          <p class="task-why">♥ Tested boundaries are what keep one person's data from ever being another person's to see.</p>
+          <p class="task-done">Done when: RLS and invariant test suites run in CI and pass, including denial cases. · <a href="/playbook/docs/20-implementation-roadmap">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Build authentication/account lifecycle with MFA for privileged users</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Implement authentication and full account lifecycle, with MFA required for privileged users.</p>
+          <p class="task-why">♥ Privileged access guards money and participant data; it must not hang on a single password.</p>
+          <p class="task-done">Done when: Account lifecycle works end to end in staging and privileged logins are blocked without MFA. · <a href="/playbook/docs/20-implementation-roadmap">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Build operator shell and role-specific navigation</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Deliver the operator application shell with navigation scoped to each role.</p>
+          <p class="task-why">♥ People see only what their role needs, which protects both them and everyone in the data.</p>
+          <p class="task-done">Done when: The operator shell renders role-correct navigation for every defined role in staging. · <a href="/playbook/docs/20-implementation-roadmap">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Build sticker batch/code export, activation, assignment, custody, void/recall, and audit</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Implement the full sticker code lifecycle: batch/code export, activation, assignment, custody tracking, void/recall, and audit trail.</p>
+          <p class="task-why">♥ Knowing where every sticker is and whether it's live is how the system stays honest about what's in the world.</p>
+          <p class="task-done">Done when: Each lifecycle operation works in staging with a complete audit record for every state change. · <a href="/playbook/docs/20-implementation-roadmap">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Build public scan, offer reveal, claim, expiry, and help routes</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Implement the public-facing routes: scan, offer reveal, claim, expiry handling, and help.</p>
+          <p class="task-why">♥ This is the moment a recipient meets the service; it has to work simply and with dignity.</p>
+          <p class="task-done">Done when: All five public routes work in staging on real devices, including expiry and help paths. · <a href="/playbook/docs/20-implementation-roadmap">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Build business qualification/onboarding with location/staff access, offer templates, and custom review</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Implement business qualification and onboarding, location and staff access management, offer templates, and the custom-offer review path.</p>
+          <p class="task-why">♥ Well-vetted businesses with clear offers are what make a recipient's sticker actually worth something.</p>
+          <p class="task-done">Done when: A business can be qualified, onboarded, granted location/staff access, and publish a templated or reviewed custom offer in staging. · <a href="/playbook/docs/20-implementation-roadmap">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Build authenticated no-POS redemption verification with idempotent replay and dispute/correction</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Implement redemption verification that needs no POS integration, with authenticated staff confirmation, idempotent replay protection, and a dispute/correction path.</p>
+          <p class="task-why">♥ The counter moment must be fast and fair for staff and never humiliating for the person redeeming.</p>
+          <p class="task-done">Done when: Staging demonstrates authenticated redemption without POS, replay attempts that cannot double-redeem, and a working dispute/correction flow. · <a href="/playbook/docs/20-implementation-roadmap">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Build transactional obligation creation under a versioned simulated/approved formula</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Implement obligation creation as a transaction governed by a versioned formula, clearly flagged simulated versus approved.</p>
+          <p class="task-why">♥ What a business is owed must be computed by rules everyone can see and audit, never by hand-waving.</p>
+          <p class="task-done">Done when: A redemption creates its obligation transactionally under a versioned formula, with the simulated/approved state explicit. · <a href="/playbook/docs/20-implementation-roadmap">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Build finance review, dual approval, manual execution evidence, failure/reissue, and reconciliation</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Implement the finance workflow: obligation review, dual approval, manual execution with evidence capture, failure/reissue handling, and reconciliation.</p>
+          <p class="task-why">♥ Two sets of eyes and captured evidence on every payout is how businesses learn they can trust the promise.</p>
+          <p class="task-done">Done when: The full finance workflow runs in staging: no execution without dual approval, evidence attached, failures reissuable, and reconciliation balancing. · <a href="/playbook/docs/20-implementation-roadmap">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Build distributor statement and sponsor aggregate report</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Implement the distributor statement and the sponsor-facing aggregate report.</p>
+          <p class="task-why">♥ The people funding and handing out stickers deserve to see, truthfully, what their generosity did.</p>
+          <p class="task-done">Done when: Both reports generate correctly from staging data and reconcile with the underlying records. · <a href="/playbook/docs/20-implementation-roadmap">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Build fraud/risk queue and appeal path</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Implement the fraud/risk review queue and an appeal path for flagged cases.</p>
+          <p class="task-why">♥ Fraud controls protect the fund, and the appeal path protects innocent people from the controls.</p>
+          <p class="task-done">Done when: Flagged cases enter the queue, can be resolved, and a flagged person can appeal and be reinstated in staging. · <a href="/playbook/docs/20-implementation-roadmap">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Build participant eligibility, status, training, consent, accommodations, support, complaint, suspension, appeal, and exit</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Implement the full participant lifecycle: eligibility/status, training, consent, accommodations, support, complaint, suspension, appeal, and exit.</p>
+          <p class="task-why">♥ Every stage of a participant's journey — including leaving — should be handled with dignity and due process.</p>
+          <p class="task-done">Done when: Each lifecycle stage works in staging, with consent recorded and suspension always paired with a working appeal. · <a href="/playbook/docs/20-implementation-roadmap">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Build partner-assisted and printable/no-smartphone flows</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Implement flows that work through a partner's assistance and printable paths for people without smartphones.</p>
+          <p class="task-why">♥ The people most likely to be excluded by a phone requirement are the people this project exists for.</p>
+          <p class="task-done">Done when: A participant can complete the core flow via partner assistance or printed materials, verified in staging. · <a href="/playbook/docs/20-implementation-roadmap">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Build state/ledger tests and SOP proving verified redemption is the only money-moving event</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Implement state and ledger tests plus the operating SOP demonstrating that a verified redemption is the only candidate money-moving event in the system.</p>
+          <p class="task-why">♥ Participants and backers can trust the money flow only if the system provably cannot move value any other way.</p>
+          <p class="task-done">Done when: State/ledger tests pass in CI and the SOP is approved, together evidencing PDR-02. · <a href="/playbook/docs/21-traceability-and-release-gates">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Pass the staff-verification end-to-end test with no POS integration</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Build and pass an end-to-end test of the staff-verification redemption flow, confirming the beta works without any POS integration.</p>
+          <p class="task-why">♥ Small businesses can say yes to the pilot only if it asks nothing of their point-of-sale systems.</p>
+          <p class="task-done">Done when: The staff-verification E2E test passes and is logged as acceptance evidence for SCP-02. · <a href="/playbook/docs/21-traceability-and-release-gates">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Pass RLS and API denial tests for server-authorized writes</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Implement and pass row-level-security and API denial tests proving all writes are server-authorized and unauthorized paths are rejected.</p>
+          <p class="task-why">♥ The ledger's integrity — and every obligation it records — depends on no one writing to it uninvited.</p>
+          <p class="task-done">Done when: RLS and API denial tests pass in CI as acceptance evidence for TR-02. · <a href="/playbook/docs/21-traceability-and-release-gates">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Pass concurrency, replay, and invariant tests for idempotent redemption</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Implement and pass concurrency, replay, and invariant tests proving each redemption is idempotent and creates exactly one obligation set.</p>
+          <p class="task-why">♥ Double-paying or double-charging anyone even once would break trust that took months to earn.</p>
+          <p class="task-done">Done when: Concurrency/replay/invariant tests pass in CI as acceptance evidence for TR-03. · <a href="/playbook/docs/21-traceability-and-release-gates">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Pass mutation-denial and reversal tests for the append-only audit trail</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Implement and pass tests proving audit records cannot be mutated and corrections happen only via append-only reversals.</p>
+          <p class="task-why">♥ An untouchable audit trail is how the team proves — to auditors and to itself — that every action was honest.</p>
+          <p class="task-done">Done when: Mutation denial and reversal tests pass as acceptance evidence for TR-05. · <a href="/playbook/docs/21-traceability-and-release-gates">source</a></p>
+        </div>
+      </li>
+      </ul>
+    </section>
+    <section class="task-group">
+      <h3>Finance <span class="task-count">6 tasks</span></h3>
+      <ul class="task-list-pb">
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Require two distinct authorized actors for material approval and execution</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Enforce that material financial approval and execution evidence require two distinct authorized actors.</p>
+          <p class="task-why">♥ No single person — however trusted — can move participant money alone.</p>
+          <p class="task-done">Done when: Tests confirm a single actor cannot both approve and execute a material batch. · <a href="/playbook/docs/14-technical-requirements">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Build the reconciliation workflow</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Reconcile obligations, approved batches, provider/manual execution evidence, failures, reversals, and bank/accounting totals.</p>
+          <p class="task-why">♥ The platform's ledger and the bank's ledger always agree, and every discrepancy has a name.</p>
+          <p class="task-done">Done when: A full reconciliation run matches all six record classes against bank/accounting totals with discrepancies flagged. · <a href="/playbook/docs/14-technical-requirements">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Record manual approved value execution in the platform</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Keep financial execution human-reviewed in beta: record manual approved executions in a provider-neutral execution record with CSV batch support; payment-provider integration waits for legal/operating determination.</p>
+          <p class="task-why">♥ Real money moves only through reviewed human hands until the law and the model say otherwise.</p>
+          <p class="task-done">Done when: A manual execution can be recorded against an approved batch with provider-neutral fields and CSV batch export. · <a href="/playbook/docs/15-recommended-tech-stack">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Write the financial SOP set</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Create financial formula, custody, chart of accounts, approval, execution, reconciliation, correction, refund, chargeback, failure, tax-document, and retention SOPs.</p>
+          <p class="task-why">♥ Every dollar in this system is a promise to someone — the SOPs make sure none of them slip.</p>
+          <p class="task-done">Done when: All financial SOPs are written, approved, and rehearsable. · <a href="/playbook/docs/16-required-assets">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Decide Vercel paid tier with spending controls</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Before production team use, assess whether free terms/limits suffice; budget seats, bandwidth, functions, logs, and domains with a monthly ceiling and usage alerts.</p>
+          <p class="task-why">♥ Hosting costs stay honest when a ceiling and alerts exist before the first bill.</p>
+          <p class="task-done">Done when: Tier decision is recorded with a monthly ceiling and usage alerts configured. · <a href="/playbook/docs/17-platforms-subscriptions-services">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Activate Supabase paid tier before real beta data</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Move to the paid project before any real beta data, budgeting base project, compute, storage, egress, and backups/PITR with 50/75/90% usage reviews.</p>
+          <p class="task-why">♥ Real people's data never sits on a free tier with weak guarantees.</p>
+          <p class="task-done">Done when: Paid tier is active before beta data with usage-review thresholds set at 50/75/90%. · <a href="/playbook/docs/17-platforms-subscriptions-services">source</a></p>
+        </div>
+      </li>
+      </ul>
+    </section>
+    <section class="task-group">
+      <h3>Privacy + security <span class="task-count">19 tasks</span></h3>
+      <ul class="task-list-pb">
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Implement anonymous-first privacy controls</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Enforce data minimization, a consent ledger, retention jobs, and role-based access against privacy overcollection.</p>
+          <p class="task-why">♥ The least the system can know about a person is the most it should ever collect.</p>
+          <p class="task-done">Done when: Minimization rules, consent ledger, automated retention jobs, and role-based access are implemented and verified in staging. · <a href="/playbook/docs/12-pre-design-review">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Produce the threat model and data map</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Create the security threat model and the data map covering consent, retention, access, and incident response.</p>
+          <p class="task-why">♥ You can only protect data you have honestly mapped and threats you have honestly named.</p>
+          <p class="task-done">Done when: A written threat model and data map exist and are accepted in the security release review. · <a href="/playbook/docs/13-project-scope">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Write the role matrix with least-privilege access and account recovery</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Document every user role, its least-privilege access rights, and its account-recovery path.</p>
+          <p class="task-why">♥ Least privilege protects participants; recovery paths protect the people doing the work.</p>
+          <p class="task-done">Done when: A role matrix covers every role with least-privilege access and a tested account-recovery path. · <a href="/playbook/docs/13-project-scope">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Pass the security/privacy/accessibility release review</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Complete the formal release review of the threat model, data map, consent, retention, access, incident response, and WCAG results, documenting any exceptions.</p>
+          <p class="task-why">♥ A formal review is the moment someone accountable says: this is safe enough for real people.</p>
+          <p class="task-done">Done when: The release review is held and passed with all exceptions documented and accepted by the privacy/security owner. · <a href="/playbook/docs/13-project-scope">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Require MFA on operator, finance, and organization-owner accounts</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Enforce multi-factor authentication for all privileged account types in the platform.</p>
+          <p class="task-why">♥ The accounts that can move value or change rules deserve the strongest lock.</p>
+          <p class="task-done">Done when: Privileged login without a second factor is impossible in staging and production. · <a href="/playbook/docs/14-technical-requirements">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Never expose distributor identity or expected participant value to recipients</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Enforce at the API and query level that recipient-facing responses contain no distributor identity and no expected-value figures.</p>
+          <p class="task-why">♥ The person who handed over the sticker is protected from being identified, judged, or targeted.</p>
+          <p class="task-done">Done when: Automated tests assert recipient responses never contain distributor identity or value fields. · <a href="/playbook/docs/14-technical-requirements">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Keep service-role and database-owner credentials out of the browser</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Ensure privileged credentials exist only in server environments and never ship in client bundles or responses.</p>
+          <p class="task-why">♥ The master keys to participant data never leave the vault.</p>
+          <p class="task-done">Done when: Automated checks confirm no service-role key appears in any client bundle or network response. · <a href="/playbook/docs/14-technical-requirements">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Rate-limit and abuse-monitor public endpoints with non-enumerable errors</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Apply rate limiting, abuse monitoring, and non-enumerable error responses to all public endpoints; error responses expose a correlation ID rather than stack traces or protected details.</p>
+          <p class="task-why">♥ Bad actors get slow, uninformative walls; real people get help via a correlation ID.</p>
+          <p class="task-done">Done when: Tests confirm rate limits fire, errors carry correlation IDs, and valid/invalid codes are indistinguishable by response shape. · <a href="/playbook/docs/14-technical-requirements">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Implement web security controls: CSP, secure cookies, CSRF, encoding, upload restrictions, rate limiting</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Apply Content Security Policy, secure cookies, CSRF protection where applicable, input/output encoding, upload restrictions, and rate limiting across the application.</p>
+          <p class="task-why">♥ Standard web attacks bounce off before they ever touch a participant.</p>
+          <p class="task-done">Done when: Security scan and tests confirm each control is active on the deployed staging application. · <a href="/playbook/docs/14-technical-requirements">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Enforce anonymous-first data minimization</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Do not collect name, exact age, hobbies, precise location, or device fingerprint unless a documented purpose, consent/legal basis, retention rule, and access rule exists for each field.</p>
+          <p class="task-why">♥ The platform's default posture is to know as little about vulnerable people as possible.</p>
+          <p class="task-done">Done when: A data inventory shows every collected sensitive field has documented purpose, basis, retention, and access rules — and undocumented fields are not collected. · <a href="/playbook/docs/14-technical-requirements">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Guarantee no sale of personal data and non-reidentifiable aggregates</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Enforce that personal data is never sold and that aggregate campaign/business measurement cannot allow participant re-identification.</p>
+          <p class="task-why">♥ The promise 'we will never sell you' is engineered, not just stated.</p>
+          <p class="task-done">Done when: Aggregate report outputs pass a re-identification review and the no-sale commitment is documented in policy and contracts. · <a href="/playbook/docs/14-technical-requirements">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Build the optional preference profile with consent controls</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Implement purpose-specific consent, skip, edit, withdraw, export, and delete paths for the optional profile.</p>
+          <p class="task-why">♥ Recipients keep full control of their information — participation never requires surrendering privacy.</p>
+          <p class="task-done">Done when: Every consent, skip, edit, withdraw, export, and delete path works end to end. · <a href="/playbook/docs/16-required-assets">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Create the privacy and security governance pack</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Produce the role/access matrix, data inventory/map, retention schedule, privacy notice, terms, cookie/analytics statement, security plan, incident response, backup/restore, vendor register, and access review.</p>
+          <p class="task-why">♥ People trust Worth Keeping with sensitive moments — governance is how that trust is kept, not just claimed.</p>
+          <p class="task-done">Done when: All eleven governance documents exist, are approved, and the first access review is scheduled. · <a href="/playbook/docs/16-required-assets">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Set up Sentry error monitoring before beta</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Create the Sentry organization/project, run npx @sentry/wizard@latest -i nextjs, review every generated change, and configure the environment secret, data scrubbing, release tracking, and alert rules.</p>
+          <p class="task-why">♥ Seeing errors fast — without leaking anyone's personal data — is how a small team keeps its promises at night.</p>
+          <p class="task-done">Done when: A staging-only test error is triggered and correlates in Sentry with no personal data present. · <a href="/playbook/docs/19-required-tools-and-skills">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Evidence application security and privacy engineering for architecture and release</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Produce a threat model, secure-code review, data map, and incident tabletop, with all high findings closed.</p>
+          <p class="task-why">♥ The people on these stickers have already been failed by systems; ours must not leak or expose them.</p>
+          <p class="task-done">Done when: Threat model, secure-code review, data map, and incident tabletop exist and all high findings are closed. · <a href="/playbook/docs/19-required-tools-and-skills">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Build privacy data map, retention jobs, and data-subject request workflow</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Produce the privacy data map, implement automated retention jobs, and build the data-subject request workflow.</p>
+          <p class="task-why">♥ People trusting the system with their situation deserve to know their data is mapped, expiring on schedule, and theirs to reclaim.</p>
+          <p class="task-done">Done when: The data map is complete, retention jobs run and delete on schedule, and a data-subject request completes end to end in staging. · <a href="/playbook/docs/20-implementation-roadmap">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Pass consent and data-flow tests for anonymous-first public scan</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Implement and pass tests proving public scans are anonymous by default and any profile exists only through explicit consent.</p>
+          <p class="task-why">♥ People experiencing homelessness should never have to trade their privacy to receive help.</p>
+          <p class="task-done">Done when: Consent and data-flow tests pass and are recorded as acceptance evidence for TR-01. · <a href="/playbook/docs/21-traceability-and-release-gates">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Verify no production AI dependency exists in the core beta</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Audit the beta build to confirm production AI is excluded from core flows and no beta-critical AI dependency exists.</p>
+          <p class="task-why">♥ Core promises to participants must not depend on systems the team cannot fully control or explain.</p>
+          <p class="task-done">Done when: A dependency audit confirms no beta-critical AI dependency, evidencing STK-03. · <a href="/playbook/docs/21-traceability-and-release-gates">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Close the privacy/security professional gate before handling real data</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Produce the data map, privacy notice and terms, consent flows, retention schedule, processor list, incident duties, and threat model required before any real personal or transaction data is handled.</p>
+          <p class="task-why">♥ The people this project serves are exactly the people most harmed if their data is mishandled.</p>
+          <p class="task-done">Done when: Data map, notice/terms, consent, retention, processors, incident duties, and threat model are all approved, unblocking real data. · <a href="/playbook/docs/21-traceability-and-release-gates">source</a></p>
+        </div>
+      </li>
+      </ul>
+    </section>
+    <section class="task-group">
+      <h3>QA + release <span class="task-count">11 tasks</span></h3>
+      <ul class="task-list-pb">
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Deliver traceable automated tests and staging acceptance</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Build the automated test suite traceable to requirements and pass staging acceptance for the production candidate.</p>
+          <p class="task-why">♥ Tests are how the team proves the system is safe before real people depend on it.</p>
+          <p class="task-done">Done when: Automated tests trace to requirements and the production candidate passes technical, security, operations, and accessibility acceptance in staging. · <a href="/playbook/docs/13-project-scope">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Support the required browser matrix at beta launch</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Support current and previous major versions of Safari iOS, Chrome Android, Chrome desktop, Safari desktop, Edge, and Firefox.</p>
+          <p class="task-why">♥ A recipient's browser choice never decides whether their sticker works.</p>
+          <p class="task-done">Done when: Cross-browser test runs pass on all twelve browser/version combinations for beta-critical flows. · <a href="/playbook/docs/14-technical-requirements">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Write unit tests for formulas, permissions, transitions, code utilities, and consent</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Build unit test coverage for participant-value formulas, permissions, state transitions, token/code utilities, and consent logic.</p>
+          <p class="task-why">♥ The rules that protect money and consent are checked on every commit.</p>
+          <p class="task-done">Done when: Unit suites for all five areas exist and pass in CI. · <a href="/playbook/docs/14-technical-requirements">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Write PostgreSQL tests for RLS, invariants, caps, idempotency, obligations, and reversals</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Build database-level tests for RLS, invariants, atomic cap use, idempotency, ledger/obligation creation, reversals, and forbidden mutation.</p>
+          <p class="task-why">♥ The database itself proves it will refuse to lie, even if application code is wrong.</p>
+          <p class="task-done">Done when: The PostgreSQL suite covers all seven areas and passes in CI. · <a href="/playbook/docs/14-technical-requirements">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Write API integration tests for every success and failure path</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Cover every success, replay, authorization denial, invalid transition, dispute, and failure path with API integration tests.</p>
+          <p class="task-why">♥ The unhappy paths — where people get hurt — are tested as hard as the happy ones.</p>
+          <p class="task-done">Done when: Integration tests cover all six path categories per endpoint and pass in CI. · <a href="/playbook/docs/14-technical-requirements">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Write end-to-end tests for all beta-critical workflows</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Build E2E tests for recipient scan/claim, staff redemption, partner assignment, finance review, correction, reporting, and the no-smartphone support workflow.</p>
+          <p class="task-why">♥ The whole journey — including for someone without a phone — is proven working before anyone real depends on it.</p>
+          <p class="task-done">Done when: E2E tests for all seven workflows pass in CI against a deployed preview. · <a href="/playbook/docs/14-technical-requirements">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Set up Vitest, React Testing Library, Playwright, and the pgTAP/SQL harness</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Install and configure Vitest + React Testing Library for unit/UI tests, Playwright for E2E, and pgTAP/SQL harness for database tests, runnable locally and in CI.</p>
+          <p class="task-why">♥ The safety net exists before the code that needs catching.</p>
+          <p class="task-done">Done when: All three test harnesses run a passing smoke test locally and in CI. · <a href="/playbook/docs/15-recommended-tech-stack">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Install axe accessibility testing and wire it into critical E2E flows</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Run npm install --save-dev --save-exact @axe-core/playwright@4.12.1 and include axe checks in critical E2E flows.</p>
+          <p class="task-why">♥ Automated accessibility checks defend access for people who are too often designed out.</p>
+          <p class="task-done">Done when: The accessibility E2E test runs with zero serious or critical findings. · <a href="/playbook/docs/19-required-tools-and-skills">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Evidence test and release engineering for every merge and release</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Stand up the CI pipeline with test traceability, preview acceptance, migration rollback, and a production smoke test.</p>
+          <p class="task-why">♥ Disciplined releases mean a fix for one person never quietly breaks the service for everyone else.</p>
+          <p class="task-done">Done when: CI pipeline, test traceability, preview acceptance, migration rollback, and production smoke test are all demonstrated and recorded. · <a href="/playbook/docs/19-required-tools-and-skills">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Pass Phase 2 exit: synthetic end-to-end flow with security tests</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Prove the synthetic end-to-end flow in staging with denial tests, concurrency/idempotency tests, and verification that no service-role credential reaches the browser.</p>
+          <p class="task-why">♥ A tested foundation is what makes it safe to ever put a real person's claim through the system.</p>
+          <p class="task-done">Done when: The end-to-end staging flow passes with denial and concurrency/idempotency suites green and a verified absence of service-role credentials in the browser. · <a href="/playbook/docs/20-implementation-roadmap">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Pass Phase 3 exit: balanced obligations, replay-proof, history-preserving corrections, bounded roles</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Prove with automated tests that one effective redemption creates one balanced obligation set, replay cannot duplicate, corrections preserve history, and role access is bounded.</p>
+          <p class="task-why">♥ These four properties are the difference between a ledger businesses can trust and one they can't.</p>
+          <p class="task-done">Done when: Automated tests for all four properties pass in CI and are linked as evidence. · <a href="/playbook/docs/20-implementation-roadmap">source</a></p>
+        </div>
+      </li>
+      </ul>
+    </section>
+    <section class="task-group">
+      <h3>Safeguarding <span class="task-count">3 tasks</span></h3>
+      <ul class="task-list-pb">
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Segregate safety/incident details from marketing and business reporting</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Keep safety and incident details in access-restricted records that never flow into marketing or business reporting.</p>
+          <p class="task-why">♥ A person's hardest moments never become someone's dashboard metric.</p>
+          <p class="task-done">Done when: Access tests confirm incident data is invisible to marketing/business report queries and roles. · <a href="/playbook/docs/14-technical-requirements">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Write the participant policy set</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Create participant eligibility, consent, privacy, training, safety, incident, media, complaint, suspension, appeal, and exit policies.</p>
+          <p class="task-why">♥ Participants are the most vulnerable people in the system — these policies are their protection in writing.</p>
+          <p class="task-done">Done when: All eleven participant policies are written and approved. · <a href="/playbook/docs/16-required-assets">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Build incident and restricted-note controls</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Implement incident recording and restricted-note controls limiting who can write and read sensitive notes about participants.</p>
+          <p class="task-why">♥ Sensitive observations about vulnerable people must never be casually visible.</p>
+          <p class="task-done">Done when: Incident records and restricted notes enforce their access rules in staging, verified by denial tests. · <a href="/playbook/docs/20-implementation-roadmap">source</a></p>
+        </div>
+      </li>
+      </ul>
+    </section>
+    <section class="task-group">
+      <h3>Support <span class="task-count">2 tasks</span></h3>
+      <ul class="task-list-pb">
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Provide a human support channel and partner-assisted statements</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Provide distributors a human support channel and a partner-assisted statement path when no reliable device exists.</p>
+          <p class="task-why">♥ Nobody is left talking to a form when they need a person.</p>
+          <p class="task-done">Done when: The support channel is reachable from distributor views and a partner-assisted statement can be produced in rehearsal. · <a href="/playbook/docs/14-technical-requirements">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Build the role-based case queue for participant and transaction matters</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Implement a role-based case queue inside the platform for participant/transaction matters with CSV/PDF case export under access controls, so sensitive cases never live only in generic SaaS tickets.</p>
+          <p class="task-why">♥ A distributor's dispute or a recipient's problem is handled inside the system that protects them.</p>
+          <p class="task-done">Done when: Sensitive cases route to the in-platform queue, are access-controlled, and export works for authorized roles. · <a href="/playbook/docs/15-recommended-tech-stack">source</a></p>
+        </div>
+      </li>
+      </ul>
+    </section>
+    <section class="task-group">
+      <h3>Technical lead <span class="task-count">15 tasks</span></h3>
+      <ul class="task-list-pb">
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Revise the fourteen-table draft schema after professional determinations</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Retain the useful concepts of the existing fourteen-table draft while revising names and relationships once counsel/CPA determinations land.</p>
+          <p class="task-why">♥ The data model speaks the approved public language, not prototype shorthand.</p>
+          <p class="task-done">Done when: A revised schema using approved terminology is committed and mapped against the draft. · <a href="/playbook/docs/14-technical-requirements">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Separate local, preview, staging, and production environments and secrets</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Establish local (synthetic fixtures), preview (synthetic/seeded), staging (synthetic plus consented test accounts), and production (minimum necessary real data) environments with distinct secrets in platform stores; no production database copy may be used in local/preview.</p>
+          <p class="task-why">♥ Real participants' data never leaks into a developer's laptop or a demo.</p>
+          <p class="task-done">Done when: All four environments exist with separate secrets and a documented rule blocking production data outside production. · <a href="/playbook/docs/15-recommended-tech-stack">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Establish the 99.5% monthly availability objective with checks</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Set and monitor a 99.5% monthly availability objective for beta-critical web/API routes, excluding announced maintenance.</p>
+          <p class="task-why">♥ A sticker scanned at 2am on a Sunday still works.</p>
+          <p class="task-done">Done when: Availability checks run against beta-critical routes and report monthly uptime against the 99.5% target. · <a href="/playbook/docs/14-technical-requirements">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Configure recovery point and recovery time objectives</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Configure backups and recovery to meet RPO of 24 hours for general content and 15 minutes for transactional/financial records where the platform supports it, and RTO of 4 hours for beta-critical service.</p>
+          <p class="task-why">♥ Even in a disaster, at most minutes of anyone's earned value can be lost.</p>
+          <p class="task-done">Done when: Backup/replication configuration is documented as meeting the stated RPO/RTO values on the chosen platform. · <a href="/playbook/docs/14-technical-requirements">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Consolidate the beta into one organization-owned Next.js application</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Build the beta as a single Next.js application backed by Supabase/PostgreSQL, deployed through GitHub to Vercel under organization ownership.</p>
+          <p class="task-why">♥ One accountable codebase means one place where every promise to participants is kept.</p>
+          <p class="task-done">Done when: The unified application exists in the org repo and deploys through GitHub to Vercel. · <a href="/playbook/docs/15-recommended-tech-stack">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Set up managed Supabase PostgreSQL with SQL migrations and nightly logical export</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Provision managed Supabase PostgreSQL, manage schema through SQL migrations, and schedule a nightly logical export to standard PostgreSQL as the exit path.</p>
+          <p class="task-why">♥ The single source of truth is managed, versioned, and always portable if Supabase ever fails us.</p>
+          <p class="task-done">Done when: The Supabase project runs migrations from the repo and a nightly logical export lands and is verified restorable. · <a href="/playbook/docs/15-recommended-tech-stack">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Establish the server execution model: route handlers plus bounded background jobs</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Use Next.js route handlers/server actions for synchronous workflows and Supabase scheduled/edge jobs only for bounded background work, with a documented path to a standard Node worker if volume grows.</p>
+          <p class="task-why">♥ Work happens where it's authorized and observable, not scattered across ad-hoc scripts.</p>
+          <p class="task-done">Done when: The execution model is documented, implemented, and the worker exit path is written down. · <a href="/playbook/docs/15-recommended-tech-stack">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Set up Vercel with GitHub preview, staging, and production environments</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Configure Vercel projects/environments for GitHub preview deployments, staging, and production, and document the container/Node hosting fallback path.</p>
+          <p class="task-why">♥ Every change is seen and rehearsed before it reaches the environment real people use.</p>
+          <p class="task-done">Done when: Preview, staging, and production deployments all work from GitHub and the fallback hosting path is documented. · <a href="/playbook/docs/15-recommended-tech-stack">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Document and enforce the six core architecture decisions</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Record as ADRs: PostgreSQL as the one transactional source of truth, anonymous-first recipient flow, server-authorized writes, append-only accountability, provider adapters for external services, and no premature distributed system (no microservices, Kafka, blockchain, or multiple databases at pilot scale).</p>
+          <p class="task-why">♥ The principles that keep the system honest survive team changes because they're written down.</p>
+          <p class="task-done">Done when: All six decisions exist as committed ADRs referenced from the repository README. · <a href="/playbook/docs/15-recommended-tech-stack">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Set up Vercel hosting with environment separation</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Create the organization project on a commercial team plan with billing owner, backup admin, and preview/staging/production separation.</p>
+          <p class="task-why">♥ Clean environment separation keeps experiments from ever touching real recipients.</p>
+          <p class="task-done">Done when: Org project exists with billing owner, backup admin, and three separated environments. · <a href="/playbook/docs/17-platforms-subscriptions-services">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Set up Supabase production and development projects</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Create a Pro-class production project plus separate development/staging projects with organization owner, billing, MFA, a PITR/backup decision, and data region choice.</p>
+          <p class="task-why">♥ Recipient data deserves production-grade custody with backups decided before the first record exists.</p>
+          <p class="task-done">Done when: Separate prod/dev/staging projects exist with MFA, owner, billing, region, and a recorded PITR/backup decision. · <a href="/playbook/docs/17-platforms-subscriptions-services">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Re-verify tool version compatibility and security at implementation start</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Re-check the 2026-07-18 planning-baseline tool versions for compatibility and security when the build begins, record any approved change, and keep selected versions exact in the manifest and lockfile.</p>
+          <p class="task-why">♥ A months-old version pin can hide known vulnerabilities the team is accountable for.</p>
+          <p class="task-done">Done when: Each baseline version is re-verified or updated with an approval record, and the manifest and lockfile hold exact versions. · <a href="/playbook/docs/19-required-tools-and-skills">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Run the hosted-services acceptance check before production use</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Run the acceptance check defined in 17-platforms-subscriptions-services.md against every hosted service before any production use.</p>
+          <p class="task-why">♥ A final acceptance pass catches the misconfiguration that would otherwise surface in front of real users.</p>
+          <p class="task-done">Done when: The acceptance check from 17-platforms-subscriptions-services.md passes and is recorded for each service before production use. · <a href="/playbook/docs/19-required-tools-and-skills">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Ensure every shipped capability has a trained owner and backup</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">For each capability shipped during the build, confirm a named owner and backup can operate it, as the definition of done requires.</p>
+          <p class="task-why">♥ Tools nobody is trained on become single points of failure the moment real people depend on them.</p>
+          <p class="task-done">Done when: Each shipped capability has a named owner and backup who can demonstrate operating it, recorded as evidence. · <a href="/playbook/docs/20-implementation-roadmap">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Record the stack architecture decision and prove it with working builds</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Record the architecture decision adopting Next.js/TypeScript/Supabase/Vercel/GitHub and demonstrate working builds on that stack.</p>
+          <p class="task-why">♥ A recorded decision plus a green build turns a recommendation into a foundation the team can rely on.</p>
+          <p class="task-done">Done when: The architecture decision is documented and the application builds successfully on the chosen stack. · <a href="/playbook/docs/21-traceability-and-release-gates">source</a></p>
+        </div>
+      </li>
+      </ul>
+    </section>
+    <section class="task-group">
+      <h3>UX + accessibility <span class="task-count">10 tasks</span></h3>
+      <ul class="task-list-pb">
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Complete WCAG accessibility QA</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Run accessibility QA across the recipient, distributor, business, and operator surfaces.</p>
+          <p class="task-why">♥ The first scan often happens on a borrowed phone in hard circumstances — accessibility is the mission, not a checkbox.</p>
+          <p class="task-done">Done when: WCAG QA is complete with results documented and exceptions formally recorded. · <a href="/playbook/docs/13-project-scope">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Support partner-assisted distributor access and a documented non-digital fallback</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Build distributor access that works through partner assistance and document a non-digital fallback path for distributors without reliable devices.</p>
+          <p class="task-why">♥ No distributor loses their standing or their record because they don't own a working phone.</p>
+          <p class="task-done">Done when: Partner-assisted access works in testing and the non-digital fallback procedure is written and approved. · <a href="/playbook/docs/14-technical-requirements">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Explain the giver-first model before requesting any profile data</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Build the recipient flow so the explanation of who gave the sticker and why comes before any optional profile or consent request.</p>
+          <p class="task-why">♥ The story of generosity leads; data collection never does.</p>
+          <p class="task-done">Done when: The recipient flow shows the giver-first explanation screen before any data request in E2E tests and design review. · <a href="/playbook/docs/14-technical-requirements">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Show distributors plain-language activity and value counts</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Display plain-language counts for assigned/passed/claimed/redeemed activity and approved/executed value to each distributor.</p>
+          <p class="task-why">♥ Every distributor can understand exactly where they stand without decoding jargon.</p>
+          <p class="task-done">Done when: The distributor view renders all six counts in plain language and passes readability review. · <a href="/playbook/docs/14-technical-requirements">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Build all beta-critical workflows to WCAG 2.2 AA</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Implement keyboard navigation, visible focus, semantic landmarks, labels, error summaries, 200% zoom/reflow, sufficient contrast, reduced motion, captions/transcripts, and non-color status cues across beta-critical workflows.</p>
+          <p class="task-why">♥ The people this project serves are exactly the people accessibility failures exclude.</p>
+          <p class="task-done">Done when: Automated accessibility checks pass and each listed technique is verified present in beta-critical workflows. · <a href="/playbook/docs/14-technical-requirements">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Write plain-language content and assess Austin language needs with the operating partner</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Ship plain-language English at beta, assess Austin-language needs with the operating partner before launch, and provide partner-assisted explanation plus printable versions of critical participant materials.</p>
+          <p class="task-why">♥ Understanding the deal you're agreeing to should never require fluent bureaucratic English or a smartphone.</p>
+          <p class="task-done">Done when: Plain-language review passes, the partner language assessment is documented, and printable critical materials exist. · <a href="/playbook/docs/14-technical-requirements">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Implement empty, error, and degraded UI states</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Build empty, loading, offline, error, timeout, retry, unauthorized, suspended, and maintenance states across the product.</p>
+          <p class="task-why">♥ The system will fail sometimes; when it does, no one standing at a counter should be left confused.</p>
+          <p class="task-done">Done when: Every listed state is implemented and reviewed across the core flows. · <a href="/playbook/docs/16-required-assets">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Adopt a plain-language glossary for program terms</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Replace &quot;micro-grant,&quot; &quot;payout,&quot; &quot;pledge,&quot; and &quot;overhead&quot; with plain, professionally-determined language across the product.</p>
+          <p class="task-why">♥ Words shape dignity — no recipient should need jargon translated to understand what they received.</p>
+          <p class="task-done">Done when: The glossary is approved after professional determination and the old terms are removed from product copy. · <a href="/playbook/docs/16-required-assets">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Evidence accessibility design and QA capability for design and release</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Complete the WCAG 2.2 AA checklist plus keyboard, screen-reader, zoom, contrast, and manual reviews.</p>
+          <p class="task-why">♥ Accessibility is the difference between honoring someone and locking them out of their own story.</p>
+          <p class="task-done">Done when: The WCAG 2.2 AA checklist and keyboard/screen-reader/zoom/contrast/manual reviews are completed and recorded. · <a href="/playbook/docs/19-required-tools-and-skills">source</a></p>
+        </div>
+      </li>
+      <li class="task gated">
+        <span class="task-check" aria-hidden="true"></span>
+        <div class="task-body">
+          <div class="task-top"><b>Complete WCAG 2.2 AA remediation and device/low-bandwidth testing</b><span class="pill gated">Gated</span></div>
+          <p class="task-what">Remediate the product to WCAG 2.2 AA and test on real devices and low-bandwidth connections.</p>
+          <p class="task-why">♥ Accessibility is not a feature here — the intended users disproportionately rely on old devices, weak connections, and assistive tech.</p>
+          <p class="task-done">Done when: WCAG 2.2 AA audit passes and the device/low-bandwidth test matrix is completed with results logged. · <a href="/playbook/docs/20-implementation-roadmap">source</a></p>
+        </div>
+      </li>
+      </ul>
+    </section>
+    <nav class="doc-pager" aria-label="Gates">
+      <a href="/playbook/g4"><small>← Previous gate</small><b>G4 · Community round</b></a>
+      <a class="next" href="/playbook/g6"><small>Next gate →</small><b>G6 · Pilot rehearsal</b></a>
+    </nav>
+  </main>
+  <script>
+const bar=document.getElementById("pb");
+const up=()=>{const r=document.documentElement,d=r.scrollHeight-r.clientHeight;
+bar.style.transform="scaleX("+(d>0?Math.min(1,r.scrollTop/d):0)+")"};
+document.addEventListener("scroll",up,{passive:true});up();
+</script>
+</body>
+</html>

@@ -1,11 +1,12 @@
 # Worth Keeping — Healed People Heal People
 
-Public site for the Worth Keeping (formerly StickerPass) concept-to-beta plan.
+Public site for Worth Keeping (formerly StickerPass).
 
-- `/` — the Infinity Page (the story)
-- `/plan/` — the complete planning package (22 designed documents)
+- `/` — the inspiration: the idea, the art, the invitation
+- `/playbook` — the internal go-to-market playbook: nine gates, every task, every role
+- `/playbook/docs` — the reference library: all 24 planning documents
 
-Built from the StickerPass deliverables workspace; regenerate with
+Built from the Worth Keeping deliverables workspace; regenerate with
 `deliverables/assemble-site.sh` there. Sticker art: web-optimized cutouts
 only — full-resolution review masters are intentionally not published.
 
